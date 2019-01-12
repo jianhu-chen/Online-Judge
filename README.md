@@ -3,7 +3,7 @@
 
 ## Algorithms
 
-- Easy
+- **Easy**
 
   1.Two Sum - 两数之和
   
@@ -11,7 +11,7 @@
   
   9.Palindrome Number - 回文数
 
-- Medium
+- **Medium**
 
   2.Add Two Numbers - 两数相加
 
@@ -23,13 +23,13 @@
   
   8.String to Integer (atoi) - 字符串转换整数 (atoi)
   
-- Hard
+- **Hard**
 
   4.Median of Two Sorted Arrays 寻找两个有序数组的中位数
   
 ## Shell
 
-- Easy
+- **Easy**
 
   193.Valid Phone Numbers 有效电话号码
   
