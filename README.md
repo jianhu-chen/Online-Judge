@@ -1,5 +1,6 @@
 # LeetCode
 
+这个寒假开始...
 
 ## Algorithms
 
