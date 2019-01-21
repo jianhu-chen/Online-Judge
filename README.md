@@ -1,6 +1,6 @@
 ## LeetCode
 
-2019.1.12开始...
+2019.1.21开始...
 
 [1_Two_Sum - 两数之和 @Easy](LeetCode/1_Two_Sum.py)
 
