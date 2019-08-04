@@ -35,7 +35,7 @@ class Solution:
 
 
 if __name__ == "__main__":
-    # make test data, len = 2
+    # make test data, len = 3
     dataHead = RandomListNode(1)
     nextNode = RandomListNode(2)
     dataHead.next = nextNode
