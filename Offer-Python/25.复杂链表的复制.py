@@ -15,24 +15,33 @@ class Solution:
         # write code here
         if not pHead:
             return pHead
-        nodes = []
+        pRoot = pHead
+        
+        # 复制结点
         while pHead:
-            nodes.append(pHead)
             copy_node= RandomListNode(pHead.label)
             copy_node.next = pHead.next
             pHead.next = copy_node
-            nodes.append(copy_node)
             pHead = pHead.next.next
-
-        for i, node in enumerate(nodes):
-            if i%2 == 0 and node.random:
-                node.next.random = node.random.next
-            
-        for i, node in enumerate(nodes):
-            if i%2 != 0 and node.next:
-                node.next = node.next.next
-        return nodes[1]
-
+        
+        # 调整随机指针
+        pHead = pRoot
+        while pHead.random: # random 指针存在时才需要调整
+            try:
+                pHead.next.random = pHead.random.next
+                pHead = pHead.next.next
+            except:
+                break
+        
+        # 连接新结点
+        pHead = pRoot
+        while pHead:
+            try:
+                pHead.next.next = pHead.next.next.next
+                pHead = pHead.next.next
+            except:
+                break
+        return pRoot.next
 
 if __name__ == "__main__":
     # make test data, len = 3
@@ -42,7 +51,7 @@ if __name__ == "__main__":
     dataHead.random = nextNode
     nnextNode = RandomListNode(3)
     nextNode.next = nnextNode
-    nextNode.random = dataHead
+    nextNode.random = nextNode
     s = Solution()
     resultHead = s.Clone(dataHead)
     while resultHead:
