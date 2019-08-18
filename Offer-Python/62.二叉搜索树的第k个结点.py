@@ -15,17 +15,20 @@ class Solution:
     # 返回对应节点TreeNode
     def KthNode(self, pRoot, k):
         # write code here
+        self.k = k
         if k <= 0 or not pRoot:
             return None
         self.GetLDRList(pRoot)
         try:
-            sorted(self.nodes, key = lambda node: node.val)
             return self.nodes[k-1]
         except:
             return None
 
     def GetLDRList(self, pHead):
         if not pHead:
+            return
+        # 截断
+        if len(self.nodes) >= self.k:
             return
         self.GetLDRList(pHead.left)
         self.nodes.append(pHead)
