@@ -11,18 +11,37 @@
 class Solution:
     def __init__(self):
         self.dlr_list = []
-        self.sym_dlr_list = []
+        self.mirror_dlr_list = []
 
     def isSymmetrical(self, pRoot):
         # write code here
-        self.getDLRList(pRoot) # 获得原树的前序遍历列表
+        self.getDLRList(pRoot, is_mirror=False) # 获得原树的前序遍历列表
+        self.getMirrorTree(pRoot)
+        self.getDLRList(pRoot, is_mirror=True) # 获得镜像树的前序遍历列表
+        if ''.join(self.dlr_list) == ''.join(self.mirror_dlr_list):
+            return True
+        else:
+            return False
 
+    def getDLRList(self, pRoot, is_mirror):
+        if is_mirror:
+            l = self.mirror_dlr_list
+        else:
+            l = self.dlr_list
+        if not pRoot:
+            l.append('#')
+            return
+        l.append(str(pRoot.val))
+        self.getDLRList(pRoot.left, is_mirror)
+        self.getDLRList(pRoot.right, is_mirror)
 
-    def getDLRList(self, pHead):
-        if not pHead:
-            self.dlr_list.append('NULL')
-        self.dlr_list.append(pHead)
-        self.getDLRList(pHead.left)
-        self.getDLRList(pHead.right)
-    
-    def t
+    def getMirrorTree(self, pRoot):
+        if not pRoot:
+            return pRoot
+        pRoot.left, pRoot.right = pRoot.right, pRoot.left
+        if pRoot.left:
+            self.getMirrorTree(pRoot.left)
+        if pRoot.right:
+            self.getMirrorTree(pRoot.right)
+        return pRoot
+
