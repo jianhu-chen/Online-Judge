@@ -7,17 +7,57 @@
 # 二叉树的反序列化是指：根据某种遍历顺序得到的序列化字符串结果str，重构二叉树。
 
 # -*- coding:utf-8 -*-
-# class TreeNode:
-#     def __init__(self, x):
-#         self.val = x
-#         self.left = None
-#         self.right = None
+class TreeNode:
+    def __init__(self, x):
+        self.val = x
+        self.left = None
+        self.right = None
+    
+    def __str__(self):
+        return str(self.val)
+
+
 class Solution:
+    def __init__(self):
+        self.ldr_list = []
+        self.index = -1
+
     def Serialize(self, root):
         # write code here
-        pass
+        if not root:
+            return ''
+        self.GetLDRList(root)
+        s = ','.join(self.ldr_list)
+        return s
+
+    def GetLDRList(self, pHead):
+        if not pHead:
+            self.ldr_list.append('#')
+            return
+        self.ldr_list.append(str(pHead.val))
+        self.GetLDRList(pHead.left)
+        self.GetLDRList(pHead.right)
 
     def Deserialize(self, s):
         # write code here
-        pass
-    
+        self.index += 1
+        values = s.split(',')
+        if self.index >= len(values) or values[self.index] == '#':
+            return None
+        head = TreeNode(int(values[self.index]))
+        head.left = self.Deserialize(s)
+        head.right = self.Deserialize(s)
+        return head
+
+if __name__ == "__main__":
+    s = Solution()
+    result_s = '5,4,#,3,#,2'
+    print(type(result_s), result_s)
+    result_n = s.Deserialize(result_s)
+    print(result_n)
+    print(result_n.left)
+    print(result_n.right)
+    print(result_n.left.left)
+    print(result_n.left.right)
+    # print(result_n.right.left)
+    print(result_n.right.right)
