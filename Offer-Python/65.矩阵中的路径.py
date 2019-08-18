@@ -10,5 +10,34 @@
 class Solution:
     def hasPath(self, matrix, rows, cols, path):
         # write code here
-        pass
-        
+        if rows < 0 or cols < 0 or not matrix or not path:
+            return False 
+        index = 0
+        visited = [False for _ in range(len(matrix))]
+        for i in range(rows):
+            for j in range(cols):
+                if self.hasPathCore(matrix, rows, cols, i, j, index, path, visited):
+                    return True
+        return False
+
+    def hasPathCore(self, matrix, rows, cols, i, j, index, path, visited):
+        if index == len(path):
+            return True
+        if i >= 0 and j >= 0 and i < rows and j < cols and matrix[i * cols + j] == path[index] and not visited[i * cols + j]:
+            visited[i * cols + j] = True
+            index += 1
+            has_path =  (self.hasPathCore(matrix, rows, cols, i-1, j, index, path, visited) or \
+                        self.hasPathCore(matrix, rows, cols, i+1, j, index, path, visited) or \
+                        self.hasPathCore(matrix, rows, cols, i, j-1, index, path, visited) or \
+                        self.hasPathCore(matrix, rows, cols, i, j+1, index, path, visited) )
+            if not has_path:
+                index -= 1
+                visited[i * cols + j] = False
+            else:
+                return True
+        return False
+
+if __name__ == "__main__":
+    s = Solution()
+    result = s.hasPath("AAAAAAAAAAAA", 3, 4, "AAAAAAAAAAAA")
+    print(result)
