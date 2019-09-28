@@ -43,6 +43,7 @@ class Solution:
                 break
         return pRoot.next
 
+
 if __name__ == "__main__":
     # make test data, len = 3
     dataHead = RandomListNode(1)
