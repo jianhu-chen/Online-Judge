@@ -12,6 +12,9 @@
 # >
 # >	对于%100的数据,size<=2*10^5
 
+import copy
+
+
 # -*- coding:utf-8 -*-
 class Solution:
     def InversePairs(self, data):
@@ -20,44 +23,51 @@ class Solution:
         # 中出现的逆序对的数量
         if not data:
             return 0
-        
-
-# # -*- coding:utf-8 -*-
-# class Solution:
-#     def InversePairs(self, data):
-#         # write code here
-#         if not data:
-#             return 0
-#         temp = [i for i in data]
-#         return self.mergeSort(temp, data, 0, len(data)-1) % 1000000007
+        data_copy = copy.deepcopy(data)
+        count = self.mergeSort(data, data_copy, 0, len(data) - 1)
+        return count%1000000007
        
-#     def mergeSort(self, temp, data, low, high):
-#         if low >= high:
-#             temp[low] = data[low]
-#             return 0
-#         mid = (low + high) / 2
-#         left = self.mergeSort(data, temp, low, mid)
-#         right = self.mergeSort(data, temp, mid+1, high)
+    def mergeSort(self, data, data_copy, low, high):
+        '''归并排序并统计逆序对
+        '''
+        if low == high:
+            data_copy[low] = data[low]
+            return 0
+
+        mid = int((low + high) / 2)
+        left = self.mergeSort(data_copy, data, low, mid)
+        right = self.mergeSort(data_copy, data, mid+1, high)
            
-#         count = 0
-#         i = low
-#         j = mid+1
-#         index = low
-#         while i <= mid and j <= high:
-#             if data[i] <= data[j]:
-#                 temp[index] = data[i]
-#                 i += 1
-#             else:
-#                 temp[index] = data[j]
-#                 count += mid-i+1
-#                 j += 1
-#             index += 1
-#         while i <= mid:
-#             temp[index] = data[i]
-#             i += 1
-#             index += 1
-#         while j <= high:
-#             temp[index] = data[j]
-#             j += 1
-#             index += 1
-#         return count + left + right
+        count = 0
+        i = mid
+        j = high
+        copy_index = high
+        while i >= low and j >= mid + 1:
+            if data[i] > data[j]:
+                data_copy[copy_index] = data[i]
+                i -= 1
+                copy_index -= 1
+                count += j - mid
+            else:
+                data_copy[copy_index] = data[j]
+                j -= 1
+                copy_index -= 1
+        
+        while i >= low:
+            data_copy[copy_index] = data[i]
+            i -= 1
+            copy_index -= 1
+        
+        while j >= mid + 1:
+            data_copy[copy_index] = data[j]
+            j -= 1
+            copy_index -= 1
+
+        return count + left + right
+
+
+if __name__ == "__main__":
+    test_data = [1,2,3,4,5,6,7,0]
+    s = Solution()
+    c = s.InversePairs(test_data)
+    print(c)
