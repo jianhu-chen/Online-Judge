@@ -11,37 +11,62 @@ class RandomListNode:
 
 class Solution:
     # 返回 RandomListNode
+    # 方法一： 一直没通过，但本地测试没问题
+    # def Clone(self, pHead):
+    #     # write code here
+    #     if not pHead:
+    #         return pHead
+    #     pRoot = pHead
+        
+    #     # 复制结点
+    #     while pHead:
+    #         copy_node= RandomListNode(pHead.label)
+    #         copy_node.next = pHead.next
+    #         pHead.next = copy_node
+    #         pHead = pHead.next.next
+        
+    #     # 调整随机指针
+    #     pHead = pRoot
+    #     while pHead.random: # random 指针存在时才需要调整
+    #         try:
+    #             pHead.next.random = pHead.random.next
+    #             pHead = pHead.next.next
+    #         except:
+    #             break
+        
+    #     # 连接新结点
+    #     pHead = pRoot
+    #     while pHead:
+    #         try:
+    #             pHead.next.next = pHead.next.next.next
+    #             pHead = pHead.next.next
+    #         except:
+    #             break
+    #     return pRoot.next
+
+    # 方法二
     def Clone(self, pHead):
         # write code here
         if not pHead:
-            return pHead
-        pRoot = pHead
-        
-        # 复制结点
+            return None
+
+        original_nodes = []
         while pHead:
-            copy_node= RandomListNode(pHead.label)
-            copy_node.next = pHead.next
-            pHead.next = copy_node
-            pHead = pHead.next.next
-        
-        # 调整随机指针
-        pHead = pRoot
-        while pHead.random: # random 指针存在时才需要调整
-            try:
-                pHead.next.random = pHead.random.next
-                pHead = pHead.next.next
-            except:
-                break
-        
-        # 连接新结点
-        pHead = pRoot
-        while pHead:
-            try:
-                pHead.next.next = pHead.next.next.next
-                pHead = pHead.next.next
-            except:
-                break
-        return pRoot.next
+            original_nodes.append(pHead)
+            pHead = pHead.next
+
+        id_dict = {}
+        for i, n in enumerate(original_nodes):
+            id_dict[id(n)] = i
+
+        new_nodes = [RandomListNode(original_node.label) for original_node in original_nodes]
+
+        for original_node, new_node in zip(original_nodes, new_nodes):
+            if original_node.next:
+                new_node.next = new_nodes[id_dict[id(original_node.next)]]
+            if original_node.random:
+                new_node.random = new_nodes[id_dict[id(original_node.random)]]
+        return new_nodes[0]
 
 
 if __name__ == "__main__":
