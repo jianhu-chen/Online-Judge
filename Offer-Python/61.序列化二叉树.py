@@ -24,35 +24,36 @@ class Solution:
 
     def Serialize(self, root):
         # write code here
-        if not root:
-            return ''
-        self.GetLDRList(root)
-        s = ','.join(self.ldr_list)
+        s = self.GetLDRStr(root)
         return s
 
-    def GetLDRList(self, pHead):
+    def GetLDRStr(self, pHead):
         if not pHead:
             self.ldr_list.append('#')
             return
         self.ldr_list.append(str(pHead.val))
-        self.GetLDRList(pHead.left)
-        self.GetLDRList(pHead.right)
+        self.GetLDRStr(pHead.left)
+        self.GetLDRStr(pHead.right)
+        return ','.join(self.ldr_list)
 
     def Deserialize(self, s):
         # write code here
-        self.index += 1
-        values = s.split(',')
-        if self.index >= len(values) or values[self.index] == '#':
+        if not s:
             return None
-        head = TreeNode(int(values[self.index]))
-        head.left = self.Deserialize(s)
-        head.right = self.Deserialize(s)
-        return head
+        self.index += 1
+        ldr_list = s.split(',')
+        if self.index >= len(ldr_list):
+            return None
+        pHead = None
+        if ldr_list[self.index] != '#':
+            pHead = TreeNode(eval(ldr_list[self.index]))
+            pHead.left = self.Deserialize(s)
+            pHead.right = self.Deserialize(s)
+        return pHead
 
 if __name__ == "__main__":
     s = Solution()
     result_s = '5,4,#,3,#,2'
-    print(type(result_s), result_s)
     result_n = s.Deserialize(result_s)
     print(result_n)
     print(result_n.left)
