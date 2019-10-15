@@ -12,6 +12,7 @@ class Solution:
         # write code here
         if not pHead or not pHead.next:
             return pHead
+            
         last = None
         while pHead:
             temp = pHead.next
