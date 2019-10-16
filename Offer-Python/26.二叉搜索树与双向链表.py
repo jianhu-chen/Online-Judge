@@ -10,7 +10,6 @@ class TreeNode:
         self.right = None
 
 class Solution:
-
     def __init__(self):
         self.LDR_nodes = []
 
