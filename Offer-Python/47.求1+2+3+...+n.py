@@ -6,10 +6,12 @@
 class Solution:
     def __init__(self):
         self.sum = 0
+
     def get_sum(self, n):
         self.sum += n
         # 利用逻辑短路机制终止递归
-        return n>0 and self.get_sum(n-1) 
+        return n>0 and self.get_sum(n-1)
+        
     def Sum_Solution(self, n):
         # write code here
         # return sum(range(1, n+1))
