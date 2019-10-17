@@ -28,6 +28,7 @@ class Solution:
         #         num += 1
         #     p = (p + 1) % n
         # return childs.index(1)
+        
         # 方法二：数学归纳法
         if n < 1 or m < 1:
             return -1
