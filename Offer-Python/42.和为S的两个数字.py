@@ -12,7 +12,7 @@ class Solution:
         # write code here
         if not array:
             return []
-        for i, a in enumerate(array):
+        for a in array:
             try:
                 j = array.index(tsum - a)
             except:
