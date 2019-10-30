@@ -20,13 +20,14 @@ def main():
     cpp_path = [os.path.join('Offer-Cpp', f.replace('.py', '.cpp')) for f in files]
     
     lines = []
-    for f, p, c in zip(files, py_path, cpp_path):
+    for i, f, p, c in zip(range(1, len(files)+1), files, py_path, cpp_path):
         name = f.replace('.py', '')
         line = '|'.join(
             ['', 
-            name, 
-            '[{}]({})'.format(name, p), 
-            '[{}]({})'.format(name, c), 
+            str(i), 
+            name.split('.')[1], 
+            '[{}]({})'.format('Python', p), 
+            '[{}]({})'.format('C++', c), 
             '']
             )
         lines.append(line)
@@ -34,6 +35,15 @@ def main():
     for l in lines:
         print(l)
 
+    print('='*30)
+
+    lines = []
+    for i, c in zip(range(1, len(files)+1), cpp_path):
+        line = ''.join(['add_executable(', str(i), ' ', c.split('/')[-1],')'])
+        lines.append(line)
+
+    for l in lines:
+        print(l)
 
 
 if __name__ == "__main__":
