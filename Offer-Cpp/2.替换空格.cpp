@@ -4,6 +4,7 @@
 // 题目描述
 // 请实现一个函数，将一个字符串中的每个空格替换成“%20”。
 // 例如，当字符串为We Are Happy.则经过替换之后的字符串为We%20Are%20Happy。
+
 #include <iostream>
 #include <cstring>
 
@@ -26,10 +27,10 @@ public:
         for (int i = length - 1; i >= 0; --i) {
             if (str[i] == ' ') {
                 --count;
-                // strcpy(&str[i], "%20");
-                str[i] = '%';
-                str[i+1] = '2';
-                str[i+2] = '0';
+//                strcpy(&str[i + count * 2], "%20");
+                str[i + count * 2] = '%';
+                str[i + count * 2 + 1] = '2';
+                str[i + count * 2 + 2] = '0';
             } else {
                 str[i + count * 2] = str[i];
             }
@@ -43,7 +44,7 @@ int main() {
     char str[100] = "we are happy!";
     cout << str << endl;
     Solution sol = Solution();
-    sol.replaceSpace(str, 13);
+    sol.replaceSpace(str, strlen(str));
     cout << str << endl;
     return 0;
 }
