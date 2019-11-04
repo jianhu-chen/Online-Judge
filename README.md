@@ -5,7 +5,7 @@
 ## 剑指Offer
 
 | ID   | Title | Python | C++  |
-| ---- | ----- | ------ | ---- |
+| :----: | :-----: | :------: | :----: |
 |1|二维数组中的查找|[Python](Offer-Python/1.二维数组中的查找.py)|[C++](Offer-Cpp/1.二维数组中的查找.cpp)|
 |2|替换空格|[Python](Offer-Python/2.替换空格.py)|[C++](Offer-Cpp/2.替换空格.cpp)|
 |3|从尾到头打印链表|[Python](Offer-Python/3.从尾到头打印链表.py)|[C++](Offer-Cpp/3.从尾到头打印链表.cpp)|
