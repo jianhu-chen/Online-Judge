@@ -24,5 +24,11 @@ class Solution:
                 index_3 += 1
             if new_ugly%5 == 0:
                 index_5 += 1
+        print(ugly_list)
         return ugly_list[index-1]
 
+if __name__ == "__main__":
+    n = 9999
+    solution = Solution()
+    ret = solution.GetUglyNumber_Solution(n)
+    print(ret)
