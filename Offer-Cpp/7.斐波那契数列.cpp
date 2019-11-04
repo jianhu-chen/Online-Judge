@@ -7,14 +7,26 @@
 //    n<=39
 
 #include <iostream>
+#include <map>
 
 using namespace std;
 
 // 动态规划 时间复杂度O(n)
+//运行时间：5ms
+//占用内存：504k
 class Solution {
 public:
     int Fibonacci(int n) {
-
+        if (n == 0) {
+            return 0;
+        }
+        map<int, int> dict;
+        dict.insert(make_pair(1, 1));
+        dict.insert(make_pair(2, 1));
+        for (int i = 3; i <= n; i++) {
+            dict.insert(make_pair(i, dict[i - 1] + dict[i - 2]));
+        }
+        return dict[n];
     }
 };
 
