@@ -28,7 +28,3 @@ public:
         array.swap(ji);
     }
 };
-
-
-
-
