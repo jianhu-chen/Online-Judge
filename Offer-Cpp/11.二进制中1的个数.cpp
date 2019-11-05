@@ -25,6 +25,6 @@ public:
 
 int main() {
     unsigned int flag = 1;
-    cout << (2 & flag<<1);
+    cout << (2 & flag << 1);
     return 0;
 }
