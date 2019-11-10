@@ -12,36 +12,45 @@ using namespace std;
 
 class Solution {
 public:
+    bool first = true;
     bool VerifySquenceOfBST(vector<int> sequence) {
-        if (sequence.empty()) {
+        if (sequence.empty() && first) {
             return false;
         }
-        if (sequence.size() == 1) {
+        first = false;
+        if (sequence.size() <= 2) {
             return true;
         }
         int root = sequence.back();
-        auto left = sequence.begin();
-        while (*(left++) < root);
-        for (auto it = left; it != sequence.end(); ++it) {
+        auto mid = sequence.begin();
+        while (*(mid++) < root);
+        for (auto it = mid; it != sequence.end(); ++it) {
             if (*it < root) {
                 return false;
             }
         }
-        return VerifySquenceOfBST(vector<int>(sequence.begin(), --left)) ||
-               VerifySquenceOfBST(vector<int>(left, --sequence.end()));
+        vector<int> left(sequence.begin(), --mid);
+        vector<int> right(mid, --sequence.end());
+        return VerifySquenceOfBST(left) &&
+               VerifySquenceOfBST(right);
     }
 };
 
 
 int main() {
     vector<int> v;
-    for (int i = 0; i < 10; i++) {
-        v.push_back(i);
-    }
+    v.push_back(1);
+    v.push_back(2);
+    v.push_back(3);
+    v.push_back(4);
+    v.push_back(5);
 
-    for (int i = 0; i < vector<int>(v.begin(), -- --v.end()).size(); i++) {
-        cout << vector<int>(v.begin(), -- --v.end())[i] << " ";
-    }
-//    cout << *(--v.end());
+//    for (int i = 0; i < v.size(); i++) {
+//        cout << v[i] << " ";
+//    }
+
+    Solution s;
+    bool rst = s.VerifySquenceOfBST(v);
+    cout << rst;
     return 0;
 }
