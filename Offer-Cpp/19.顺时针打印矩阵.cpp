@@ -13,7 +13,7 @@ using namespace std;
 
 class Solution {
 public:
-    vector<int> printMatrix(vector<vector<int> > matrix) {
+    vector<int> printMatrix(vector <vector<int>> matrix) {
         auto rst = vector<int>();
         int rows = matrix.size();
         int cols = matrix[0].size();
