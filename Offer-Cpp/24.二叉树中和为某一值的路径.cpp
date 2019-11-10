@@ -23,20 +23,20 @@ struct TreeNode {
 
 class Solution {
 public:
-    vector<vector<int>> FindPath(TreeNode *root, int expectNumber) {
+    vector <vector<int>> FindPath(TreeNode *root, int expectNumber) {
         if (root == NULL) {
-            return vector<vector<int>>();
+            return vector < vector < int >> ();
         }
         if (root && root->left == NULL && root->right == NULL and root->val == expectNumber) {
-            return vector<vector<int>>(1, vector<int>(1, root->val));
+            return vector < vector < int >> (1, vector<int>(1, root->val));
         }
         vector<int> result;
-        vector<vector<int>> left = FindPath(root->left, expectNumber-root->val);
-        vector<vector<int>> right = FindPath(root->right, expectNumber-root->val);
-        for (auto it =left.begin(); it!=left.end(); it++){
+        vector <vector<int>> left = FindPath(root->left, expectNumber - root->val);
+        vector <vector<int>> right = FindPath(root->right, expectNumber - root->val);
+        for (auto it = left.begin(); it != left.end(); it++) {
             result.push_back();
         }
-        for (auto it =right.begin(); it!=right.end(); it++){
+        for (auto it = right.begin(); it != right.end(); it++) {
 
         }
     }
