@@ -80,4 +80,4 @@
 
 |  ID  |                       Title                       | Difficulty |                 Python                  |                C++                 |
 | :--: | :-----------------------------------------------: | :--------: | :-------------------------------------: | :--------------------------------: |
-| 001  | [Two Sum](https://leetcode.com/problems/two-sum/) |    Easy    | [Python](LeetCode-Python/1.两数之和.py) | [C++](LeetCode-Cpp/1.两数之和.cpp) |
+| 001  | [Two Sum](https://leetcode.com/problems/two-sum/) |    Easy    | [Python](LeetCode-Python/1.two-sum.py) | [C++](LeetCode-Cpp/1.two-sum.cpp) |
