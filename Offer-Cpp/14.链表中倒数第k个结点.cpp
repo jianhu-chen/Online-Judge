@@ -28,7 +28,7 @@ public:
         if (k <= 0) {
             return NULL;
         }
-        vector<ListNode *> nodes;
+        vector < ListNode * > nodes;
         ListNode *pHead = pListHead;
         while (pHead) {
             nodes.push_back(pHead);
