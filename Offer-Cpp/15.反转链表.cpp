@@ -25,7 +25,7 @@ public:
             return NULL;
         }
 
-        vector<ListNode *> nodes;
+        vector < ListNode * > nodes;
         while (pHead) {
             nodes.push_back(pHead);
             pHead = pHead->next;
