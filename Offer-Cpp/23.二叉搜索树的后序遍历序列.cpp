@@ -13,6 +13,7 @@ using namespace std;
 class Solution {
 public:
     bool first = true;
+
     bool VerifySquenceOfBST(vector<int> sequence) {
         if (sequence.empty() && first) {
             return false;
