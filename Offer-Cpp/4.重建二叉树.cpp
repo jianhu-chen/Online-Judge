@@ -42,7 +42,7 @@ public:
             subPreLeft.push_back(pre[i]);
         }
         vector<int> subPreRight;
-        for (int i = index+1; i < pre.size(); ++i) {
+        for (int i = index + 1; i < pre.size(); ++i) {
             subPreRight.push_back(pre[i]);
         }
         vector<int> subVinLeft;
@@ -50,7 +50,7 @@ public:
             subVinLeft.push_back(vin[i]);
         }
         vector<int> subVinRight;
-        for (int i = index+1; i < vin.size(); ++i) {
+        for (int i = index + 1; i < vin.size(); ++i) {
             subVinRight.push_back(vin[i]);
         }
 
