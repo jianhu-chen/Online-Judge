@@ -13,8 +13,9 @@ using namespace std;
 
 class Solution {
 public:
-    bool Find(int target, vector<vector<int>> array) {
-        for (vector<vector<int>>::iterator it = array.begin(); it != array.end(); it++) {
+    bool Find(int target, vector <vector<int>> array) {
+        for (vector < vector < int >> ::iterator it = array.begin(); it != array.end();
+        it++) {
             for (vector<int>::iterator itit = it->begin(); itit != it->end(); itit++) {
                 if (target == *itit) {
                     return true;
@@ -36,7 +37,7 @@ void vectorPrint(vector<int> v) {
 
 int main() {
     int target = 9999;
-    vector<vector<int>> array;
+    vector <vector<int>> array;
     for (int i = 0; i < 5; i++) {
         vector<int> a;
         for (int j = 0; j < 5; j++) {
