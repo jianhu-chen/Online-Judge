@@ -27,7 +27,7 @@ public:
         if (root == nullptr) {
             return rst;
         }
-        queue<TreeNode *> que;
+        queue < TreeNode * > que;
         que.push(root);
         while (!que.empty()) {
             TreeNode *head = que.front();
