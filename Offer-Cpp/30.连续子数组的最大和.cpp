@@ -9,23 +9,27 @@
 
 #include <iostream>
 #include <vector>
-#include <numeric>
 #include <algorithm>
 
 using namespace std;
 
+//使用动态规划
+//F（i）：以array[i]为末尾元素的子数组的和的最大值，子数组的元素的相对位置不变
+//F（i）=max（F（i-1）+array[i] ， array[i]）
+//res：所有子数组的和的最大值
+//res=max（res，F（i））
 class Solution {
 public:
     int FindGreatestSumOfSubArray(vector<int> array) {
-        int max = -1000;
-        for (auto it_star = array.begin(); it_star != --array.end(); it_star++) {
-            for (auto it_end = ++it_star; it_end != array.end(); it_end++) {
-                int sum = accumulate(it_star, it_end, 0);
-                if (sum > max) {
-                    max = sum;
-                }
+        int result = array[0];
+        int fi_1 = array[0];
+        for (int i = 1; i < array.size(); ++i) {
+            int fi = max(fi_1 + array[i], array[i]);
+            if (fi > result) {
+                result = fi;
             }
+            fi_1 = fi;
         }
-        return max;
+        return result;
     }
 };
