@@ -39,18 +39,18 @@ bool isSushu(int n) {
 }
 
 int main() {
-    int n = 3, pre = 2, N, count = 0;
-    scanf("%d", &N);
-    while (n <= N) {
-        if (isSushu(n)) {
-            if (n - pre == 2) {
+    int pre = 2, cur = 3, N, count = 0;
+    cin >> N;
+    while (cur <= N) {
+        if (isSushu(cur)) {
+            if (cur - pre == 2) {
                 ++count;
             }
-            pre = n;
+            pre = cur;
         }
-        ++n;
+        ++cur;
     }
-    printf("%d", count);
+    cout << count;
     return 0;
 }
             
