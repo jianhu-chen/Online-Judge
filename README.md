@@ -4,6 +4,8 @@
 
 - utils：小工具包
 
+> 部分链接显示page not found, 因为还没写完。
+
 ## 剑指Offer
 
 | ID   | Title | Python | C++  |
