@@ -4,8 +4,6 @@
 
 - utils：小工具包
 
-
-
 ## 剑指Offer
 
 | ID   | Title | Python | C++  |
@@ -56,7 +54,7 @@
 |44|翻转单词顺序列|[Python](Offer-Python/44.翻转单词顺序列.py)|[C++](Offer-Cpp/44.翻转单词顺序列.cpp)|
 |45|扑克牌顺子|[Python](Offer-Python/45.扑克牌顺子.py)|[C++](Offer-Cpp/45.扑克牌顺子.cpp)|
 |46|孩子们的游戏(圆圈中最后剩下的数)|[Python](Offer-Python/46.孩子们的游戏(圆圈中最后剩下的数).py)|[C++](Offer-Cpp/46.孩子们的游戏(圆圈中最后剩下的数).cpp)|
-|47|求1+2+3+|[Python](Offer-Python/47.求1+2+3+...+n.py)|[C++](Offer-Cpp/47.求1+2+3+...+n.cpp)|
+|47|求1+2+3+...+n|[Python](Offer-Python/47.求1+2+3+...+n.py)|[C++](Offer-Cpp/47.求1+2+3+...+n.cpp)|
 |48|不用加减乘除做加法|[Python](Offer-Python/48.不用加减乘除做加法.py)|[C++](Offer-Cpp/48.不用加减乘除做加法.cpp)|
 |49|把字符串转换成整数|[Python](Offer-Python/49.把字符串转换成整数.py)|[C++](Offer-Cpp/49.把字符串转换成整数.cpp)|
 |50|数组中重复的数字|[Python](Offer-Python/50.数组中重复的数字.py)|[C++](Offer-Cpp/50.数组中重复的数字.cpp)|
@@ -78,10 +76,107 @@
 |66|机器人的运动范围|[Python](Offer-Python/66.机器人的运动范围.py)|[C++](Offer-Cpp/66.机器人的运动范围.cpp)|
 |67|剪绳子|[Python](Offer-Python/67.剪绳子.py)|[C++](Offer-Cpp/67.剪绳子.cpp)|
 
-
-
 ## LeetCode
 
-|  ID  |                       Title                       | Difficulty |                 Python                  |                C++                 |
-| :--: | :-----------------------------------------------: | :--------: | :-------------------------------------: | :--------------------------------: |
-| 001  | [Two Sum](https://leetcode.com/problems/two-sum/) |    Easy    | [Python](LeetCode-Python/1.two-sum.py) | [C++](LeetCode-Cpp/1.two-sum.cpp) |
+leetcode_placeholder
+
+## PAT(BasicLevel)
+
+| ID   | Title | Python | C++  |
+| :----: | :-----: | :------: | :----: |
+|1001|害死人不偿命的(3n+1)猜想|None|[C++](PAT(BasicLevel)-Cpp/1001.害死人不偿命的(3n+1)猜想.cpp)|
+|1002|写出这个数|None|[C++](PAT(BasicLevel)-Cpp/1002.写出这个数.cpp)|
+|1003|我要通过！|None|[C++](PAT(BasicLevel)-Cpp/1003.我要通过！.cpp)|
+|1004|成绩排名|None|[C++](PAT(BasicLevel)-Cpp/1004.成绩排名.cpp)|
+|1005|继续(3n+1)猜想|None|[C++](PAT(BasicLevel)-Cpp/1005.继续(3n+1)猜想.cpp)|
+|1006|换个格式输出整数|None|[C++](PAT(BasicLevel)-Cpp/1006.换个格式输出整数.cpp)|
+|1007|素数对猜想|None|[C++](PAT(BasicLevel)-Cpp/1007.素数对猜想.cpp)|
+|1008|数组元素循环右移问题|None|[C++](PAT(BasicLevel)-Cpp/1008.数组元素循环右移问题.cpp)|
+|1009|说反话|None|[C++](PAT(BasicLevel)-Cpp/1009.说反话.cpp)|
+|1010|一元多项式求导|None|[C++](PAT(BasicLevel)-Cpp/1010.一元多项式求导.cpp)|
+|1011|A+B和C|None|[C++](PAT(BasicLevel)-Cpp/1011.A+B和C.cpp)|
+|1012|数字分类|None|[C++](PAT(BasicLevel)-Cpp/1012.数字分类.cpp)|
+|1013|数素数|None|[C++](PAT(BasicLevel)-Cpp/1013.数素数.cpp)|
+|1014|福尔摩斯的约会|None|[C++](PAT(BasicLevel)-Cpp/1014.福尔摩斯的约会.cpp)|
+|1015|德才论|None|[C++](PAT(BasicLevel)-Cpp/1015.德才论.cpp)|
+|1016|部分A+B|None|[C++](PAT(BasicLevel)-Cpp/1016.部分A+B.cpp)|
+|1017|A除以B|None|[C++](PAT(BasicLevel)-Cpp/1017.A除以B.cpp)|
+|1018|锤子剪刀布|None|[C++](PAT(BasicLevel)-Cpp/1018.锤子剪刀布.cpp)|
+|1019|数字黑洞|None|[C++](PAT(BasicLevel)-Cpp/1019.数字黑洞.cpp)|
+|1020|月饼|None|[C++](PAT(BasicLevel)-Cpp/1020.月饼.cpp)|
+|1021|个位数统计|None|[C++](PAT(BasicLevel)-Cpp/1021.个位数统计.cpp)|
+|1022|D进制的A+B|None|[C++](PAT(BasicLevel)-Cpp/1022.D进制的A+B.cpp)|
+|1023|组个最小数|None|[C++](PAT(BasicLevel)-Cpp/1023.组个最小数.cpp)|
+|1024|科学计数法|None|[C++](PAT(BasicLevel)-Cpp/1024.科学计数法.cpp)|
+|1025|反转链表|None|[C++](PAT(BasicLevel)-Cpp/1025.反转链表.cpp)|
+|1026|程序运行时间|None|[C++](PAT(BasicLevel)-Cpp/1026.程序运行时间.cpp)|
+|1027|打印沙漏|None|[C++](PAT(BasicLevel)-Cpp/1027.打印沙漏.cpp)|
+|1028|人口普查|None|[C++](PAT(BasicLevel)-Cpp/1028.人口普查.cpp)|
+|1029|旧键盘|None|[C++](PAT(BasicLevel)-Cpp/1029.旧键盘.cpp)|
+|1030|完美数列|None|[C++](PAT(BasicLevel)-Cpp/1030.完美数列.cpp)|
+|1031|查验身份证|None|[C++](PAT(BasicLevel)-Cpp/1031.查验身份证.cpp)|
+|1032|挖掘机技术哪家强|None|[C++](PAT(BasicLevel)-Cpp/1032.挖掘机技术哪家强.cpp)|
+|1033|旧键盘打字|None|[C++](PAT(BasicLevel)-Cpp/1033.旧键盘打字.cpp)|
+|1034|有理数四则运算|None|[C++](PAT(BasicLevel)-Cpp/1034.有理数四则运算.cpp)|
+|1035|插入与归并|None|[C++](PAT(BasicLevel)-Cpp/1035.插入与归并.cpp)|
+|1036|跟奥巴马一起编程|None|[C++](PAT(BasicLevel)-Cpp/1036.跟奥巴马一起编程.cpp)|
+|1037|在霍格沃茨找零钱|None|[C++](PAT(BasicLevel)-Cpp/1037.在霍格沃茨找零钱.cpp)|
+|1038|统计同成绩学生|None|[C++](PAT(BasicLevel)-Cpp/1038.统计同成绩学生.cpp)|
+|1039|到底买不买|None|[C++](PAT(BasicLevel)-Cpp/1039.到底买不买.cpp)|
+|1040|有几个PAT|None|[C++](PAT(BasicLevel)-Cpp/1040.有几个PAT.cpp)|
+|1041|考试座位号|None|[C++](PAT(BasicLevel)-Cpp/1041.考试座位号.cpp)|
+|1042|字符统计|None|[C++](PAT(BasicLevel)-Cpp/1042.字符统计.cpp)|
+|1043|输出PATest|None|[C++](PAT(BasicLevel)-Cpp/1043.输出PATest.cpp)|
+|1044|火星数字|None|[C++](PAT(BasicLevel)-Cpp/1044.火星数字.cpp)|
+|1045|快速排序|None|[C++](PAT(BasicLevel)-Cpp/1045.快速排序.cpp)|
+|1046|划拳|None|[C++](PAT(BasicLevel)-Cpp/1046.划拳.cpp)|
+|1047|编程团体赛|None|[C++](PAT(BasicLevel)-Cpp/1047.编程团体赛.cpp)|
+|1048|数字加密|None|[C++](PAT(BasicLevel)-Cpp/1048.数字加密.cpp)|
+|1049|数列的片段和|None|[C++](PAT(BasicLevel)-Cpp/1049.数列的片段和.cpp)|
+|1050|螺旋矩阵|None|[C++](PAT(BasicLevel)-Cpp/1050.螺旋矩阵.cpp)|
+|1051|复数乘法|None|[C++](PAT(BasicLevel)-Cpp/1051.复数乘法.cpp)|
+|1052|卖个萌|None|[C++](PAT(BasicLevel)-Cpp/1052.卖个萌.cpp)|
+|1053|住房空置率|None|[C++](PAT(BasicLevel)-Cpp/1053.住房空置率.cpp)|
+|1054|求平均值|None|[C++](PAT(BasicLevel)-Cpp/1054.求平均值.cpp)|
+|1055|集体照|None|[C++](PAT(BasicLevel)-Cpp/1055.集体照.cpp)|
+|1056|组合数的和|None|[C++](PAT(BasicLevel)-Cpp/1056.组合数的和.cpp)|
+|1057|数零壹|None|[C++](PAT(BasicLevel)-Cpp/1057.数零壹.cpp)|
+|1058|选择题|None|[C++](PAT(BasicLevel)-Cpp/1058.选择题.cpp)|
+|1059|C语言竞赛|None|[C++](PAT(BasicLevel)-Cpp/1059.C语言竞赛.cpp)|
+|1060|爱丁顿数|None|[C++](PAT(BasicLevel)-Cpp/1060.爱丁顿数.cpp)|
+|1061|判断题|None|[C++](PAT(BasicLevel)-Cpp/1061.判断题.cpp)|
+|1062|最简分数|None|[C++](PAT(BasicLevel)-Cpp/1062.最简分数.cpp)|
+|1063|计算谱半径|None|[C++](PAT(BasicLevel)-Cpp/1063.计算谱半径.cpp)|
+|1064|朋友数|None|[C++](PAT(BasicLevel)-Cpp/1064.朋友数.cpp)|
+|1065|单身狗|None|[C++](PAT(BasicLevel)-Cpp/1065.单身狗.cpp)|
+|1066|图像过滤|None|[C++](PAT(BasicLevel)-Cpp/1066.图像过滤.cpp)|
+|1067|试密码|None|[C++](PAT(BasicLevel)-Cpp/1067.试密码.cpp)|
+|1068|万绿丛中一点红|None|[C++](PAT(BasicLevel)-Cpp/1068.万绿丛中一点红.cpp)|
+|1069|微博转发抽奖|None|[C++](PAT(BasicLevel)-Cpp/1069.微博转发抽奖.cpp)|
+|1070|结绳|None|[C++](PAT(BasicLevel)-Cpp/1070.结绳.cpp)|
+|1071|小赌怡情|None|[C++](PAT(BasicLevel)-Cpp/1071.小赌怡情.cpp)|
+|1072|开学寄语|None|[C++](PAT(BasicLevel)-Cpp/1072.开学寄语.cpp)|
+|1073|多选题常见计分法|None|[C++](PAT(BasicLevel)-Cpp/1073.多选题常见计分法.cpp)|
+|1074|宇宙无敌加法器|None|[C++](PAT(BasicLevel)-Cpp/1074.宇宙无敌加法器.cpp)|
+|1075|链表元素分类|None|[C++](PAT(BasicLevel)-Cpp/1075.链表元素分类.cpp)|
+|1076|Wifi密码|None|[C++](PAT(BasicLevel)-Cpp/1076.Wifi密码.cpp)|
+|1077|互评成绩计算|None|[C++](PAT(BasicLevel)-Cpp/1077.互评成绩计算.cpp)|
+|1078|字符串压缩与解压|None|[C++](PAT(BasicLevel)-Cpp/1078.字符串压缩与解压.cpp)|
+|1079|延迟的回文数|None|[C++](PAT(BasicLevel)-Cpp/1079.延迟的回文数.cpp)|
+|1080|MOOC期终成绩|None|[C++](PAT(BasicLevel)-Cpp/1080.MOOC期终成绩.cpp)|
+|1081|检查密码|None|[C++](PAT(BasicLevel)-Cpp/1081.检查密码.cpp)|
+|1082|射击比赛|None|[C++](PAT(BasicLevel)-Cpp/1082.射击比赛.cpp)|
+|1083|是否存在相等的差|None|[C++](PAT(BasicLevel)-Cpp/1083.是否存在相等的差.cpp)|
+|1084|外观数列|None|[C++](PAT(BasicLevel)-Cpp/1084.外观数列.cpp)|
+|1085|PAT单位排行|None|[C++](PAT(BasicLevel)-Cpp/1085.PAT单位排行.cpp)|
+|1086|就不告诉你|None|[C++](PAT(BasicLevel)-Cpp/1086.就不告诉你.cpp)|
+|1087|有多少不同的值|None|[C++](PAT(BasicLevel)-Cpp/1087.有多少不同的值.cpp)|
+|1088|三人行|None|[C++](PAT(BasicLevel)-Cpp/1088.三人行.cpp)|
+|1089|狼人杀-简单版|None|[C++](PAT(BasicLevel)-Cpp/1089.狼人杀-简单版.cpp)|
+|1090|危险品装箱|None|[C++](PAT(BasicLevel)-Cpp/1090.危险品装箱.cpp)|
+|1091|N-自守数|None|[C++](PAT(BasicLevel)-Cpp/1091.N-自守数.cpp)|
+|1092|最好吃的月饼|None|[C++](PAT(BasicLevel)-Cpp/1092.最好吃的月饼.cpp)|
+|1093|字符串A+B|None|[C++](PAT(BasicLevel)-Cpp/1093.字符串A+B.cpp)|
+|1094|谷歌的招聘|None|[C++](PAT(BasicLevel)-Cpp/1094.谷歌的招聘.cpp)|
+|1095|解码PAT准考证|None|[C++](PAT(BasicLevel)-Cpp/1095.解码PAT准考证.cpp)|
+
