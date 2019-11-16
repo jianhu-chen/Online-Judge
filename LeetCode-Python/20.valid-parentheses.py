@@ -1,3 +1,12 @@
+# -*- encoding: utf-8 -*-
+'''
+@File    :   20.valid-parentheses.py
+@Time    :   2019/11/16 17:45:07
+@Author  :   jhchen
+@E-mail  :   jianhuchen@163.com
+@License :   Copyright(C), USTC
+@Desc    :   None
+'''
 #
 # @lc app=leetcode id=20 lang=python
 #
