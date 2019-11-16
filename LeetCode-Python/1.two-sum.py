@@ -24,22 +24,25 @@
 #
 # Given an array of integers, return indices of the two numbers such that they
 # add up to a specific target.
-# 
+#
 # You may assume that each input would have exactly one solution, and you may
 # not use the same element twice.
-# 
+#
 # Example:
-# 
-# 
+#
+#
 # Given nums = [2, 7, 11, 15], target = 9,
-# 
+#
 # Because nums[0] + nums[1] = 2 + 7 = 9,
 # return [0, 1].
-# 
-# 
+#
+#
 #
 
 # @lc code=start
+import copy
+
+
 class Solution(object):
     def twoSum(self, nums, target):
         """
@@ -47,15 +50,12 @@ class Solution(object):
         :type target: int
         :rtype: List[int]
         """
-        for i, n in enumerate(nums):
-            nums_copy = nums.copy()
-            nums_copy.remove(n)
-            try:
-                j = nums_copy.index(target-n)
-                return [i, j]
-            except:
-                pass
-            
+        dic = {}
+        for i, m in enumerate(nums):
+            n = target - m
+            if n not in dic:
+                dic[m] = i
+            else:
+                return [dic[n], i]
 
-        
 # @lc code=end
