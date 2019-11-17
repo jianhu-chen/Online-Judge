@@ -1,3 +1,12 @@
+# -*- encoding: utf-8 -*-
+'''
+@File    :   53.maximum-subarray.py
+@Time    :   2019/11/17 13:19:00
+@Author  :   jhchen
+@E-mail  :   jianhuchen@163.com
+@License :   Copyright(C), USTC
+@Desc    :   None
+'''
 #
 # @lc app=leetcode id=53 lang=python
 #
