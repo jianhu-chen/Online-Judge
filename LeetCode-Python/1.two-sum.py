@@ -50,12 +50,11 @@ class Solution(object):
         :type target: int
         :rtype: List[int]
         """
-        dic = {}
-        for i, m in enumerate(nums):
-            n = target - m
-            if n not in dic:
-                dic[m] = i
-            else:
-                return [dic[n], i]
-
+        hash_map = {}
+        for i, n in enumerate(nums):
+            try:
+                j = hash_map.pop(target - n)
+                return [j, i]
+            except:
+                hash_map[n] = i
 # @lc code=end
