@@ -1,17 +1,16 @@
 # Online-Judge
 
-
-
 # 目录说明
 
 - utils：小工具包
 
   - Readme.py: A script that generates the README document.
+
   - Spider.py: A spider that gets the problem id, problem name, and problem content of the PAT page and generates the initial cpp file and cmakelists file.
 
-  
+> 部分链接显示page not found, 因为还没写完。
 
-# 剑指Offer
+## 剑指Offer
 
 | ID   | Title | Python | C++  |
 | :----: | :-----: | :------: | :----: |
@@ -83,7 +82,7 @@
 |66|[机器人的运动范围](https://www.nowcoder.com//practice/6e5207314b5241fb83f2329e89fdecc8?tpId=13&tqId=11219&tPage=4&rp=4&ru=/ta/coding-interviews&qru=/ta/coding-interviews/question-ranking)|[Python](Offer-Python/66.机器人的运动范围.py)|NoneCpp|
 |67|[剪绳子](https://www.nowcoder.com//practice/57d85990ba5b440ab888fc72b0751bf8?tpId=13&tqId=33257&tPage=4&rp=4&ru=/ta/coding-interviews&qru=/ta/coding-interviews/question-ranking)|[Python](Offer-Python/67.剪绳子.py)|NoneCpp|
 
-# LeetCode
+## LeetCode
 
 | ID   | Title | Python | C++  |
 | :----: | :-----: | :------: | :----: |
@@ -128,9 +127,14 @@
 |169|[majority-element](https://leetcode.com/problems/majority-element)|[Python](LeetCode-Python/169.majority-element.py)|NoneCpp|
 |171|[excel-sheet-column-number](https://leetcode.com/problems/excel-sheet-column-number)|[Python](LeetCode-Python/171.excel-sheet-column-number.py)|NoneCpp|
 |172|[factorial-trailing-zeroes](https://leetcode.com/problems/factorial-trailing-zeroes)|[Python](LeetCode-Python/172.factorial-trailing-zeroes.py)|NoneCpp|
-|175|[combine-two-tables](https://leetcode.com/problems/combine-two-tables)|[Python](LeetCode-Python/175.combine-two-tables.py)|NoneCpp|
+|189|[rotate-array](https://leetcode.com/problems/rotate-array)|[Python](LeetCode-Python/189.rotate-array.py)|NoneCpp|
+|190|[reverse-bits](https://leetcode.com/problems/reverse-bits)|[Python](LeetCode-Python/190.reverse-bits.py)|NoneCpp|
+|191|[number-of-1-bits](https://leetcode.com/problems/number-of-1-bits)|[Python](LeetCode-Python/191.number-of-1-bits.py)|NoneCpp|
+|202|[happy-number](https://leetcode.com/problems/happy-number)|[Python](LeetCode-Python/202.happy-number.py)|NoneCpp|
+|203|[remove-linked-list-elements](https://leetcode.com/problems/remove-linked-list-elements)|[Python](LeetCode-Python/203.remove-linked-list-elements.py)|NoneCpp|
+|204|[count-primes](https://leetcode.com/problems/count-primes)|[Python](LeetCode-Python/204.count-primes.py)|NoneCpp|
 
-# PAT(BasicLevel)
+## PAT(BasicLevel)
 
 | ID   | Title | Python | C++  |
 | :----: | :-----: | :------: | :----: |
