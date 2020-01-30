@@ -22,17 +22,21 @@ readme_content = '''# Online-Judge
 
 - utils：小工具包
 
+  - Readme.py: A script that generates the README document.
+
+  - Spider.py: A spider that gets the problem id, problem name, and problem content of the PAT page and generates the initial cpp file and cmakelists file.
+
 > 部分链接显示page not found, 因为还没写完。
 
-# 剑指Offer
+## 剑指Offer
 
 offer_placeholder
 
-# LeetCode
+## LeetCode
 
 leetcode_placeholder
 
-# PAT(BasicLevel)
+## PAT(BasicLevel)
 
 pat_basic_placeholder
 
