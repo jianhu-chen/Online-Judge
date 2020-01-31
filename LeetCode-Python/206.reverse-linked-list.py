@@ -1,3 +1,12 @@
+# -*- encoding: utf-8 -*-
+'''
+@File    :   206.reverse-linked-list.py
+@Time    :   2020/01/31 16:48:44
+@Author  :   jhchen
+@E-mail  :   jianhuchen@163.com
+@License :   Copyright(C), USTC
+@Desc    :   None
+'''
 #
 # @lc app=leetcode id=206 lang=python
 #
