@@ -1,3 +1,12 @@
+# -*- encoding: utf-8 -*-
+'''
+@File    :   217.contains-duplicate.py
+@Time    :   2020/01/31 16:48:36
+@Author  :   jhchen
+@E-mail  :   jianhuchen@163.com
+@License :   Copyright(C), USTC
+@Desc    :   None
+'''
 #
 # @lc app=leetcode id=217 lang=python
 #
