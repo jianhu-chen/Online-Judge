@@ -133,6 +133,19 @@
 |202|[happy-number](https://leetcode.com/problems/happy-number)|[Python](LeetCode-Python/202.happy-number.py)|NoneCpp|
 |203|[remove-linked-list-elements](https://leetcode.com/problems/remove-linked-list-elements)|[Python](LeetCode-Python/203.remove-linked-list-elements.py)|NoneCpp|
 |204|[count-primes](https://leetcode.com/problems/count-primes)|[Python](LeetCode-Python/204.count-primes.py)|NoneCpp|
+|205|[isomorphic-strings](https://leetcode.com/problems/isomorphic-strings)|[Python](LeetCode-Python/205.isomorphic-strings.py)|NoneCpp|
+|206|[reverse-linked-list](https://leetcode.com/problems/reverse-linked-list)|[Python](LeetCode-Python/206.reverse-linked-list.py)|NoneCpp|
+|217|[contains-duplicate](https://leetcode.com/problems/contains-duplicate)|[Python](LeetCode-Python/217.contains-duplicate.py)|NoneCpp|
+|219|[contains-duplicate-ii](https://leetcode.com/problems/contains-duplicate-ii)|[Python](LeetCode-Python/219.contains-duplicate-ii.py)|NoneCpp|
+|225|[implement-stack-using-queues](https://leetcode.com/problems/implement-stack-using-queues)|[Python](LeetCode-Python/225.implement-stack-using-queues.py)|NoneCpp|
+|226|[invert-binary-tree](https://leetcode.com/problems/invert-binary-tree)|[Python](LeetCode-Python/226.invert-binary-tree.py)|NoneCpp|
+|231|[power-of-two](https://leetcode.com/problems/power-of-two)|[Python](LeetCode-Python/231.power-of-two.py)|NoneCpp|
+|232|[implement-queue-using-stacks](https://leetcode.com/problems/implement-queue-using-stacks)|[Python](LeetCode-Python/232.implement-queue-using-stacks.py)|NoneCpp|
+|234|[palindrome-linked-list](https://leetcode.com/problems/palindrome-linked-list)|[Python](LeetCode-Python/234.palindrome-linked-list.py)|NoneCpp|
+|235|[lowest-common-ancestor-of-a-binary-search-tree](https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree)|[Python](LeetCode-Python/235.lowest-common-ancestor-of-a-binary-search-tree.py)|NoneCpp|
+|237|[delete-node-in-a-linked-list](https://leetcode.com/problems/delete-node-in-a-linked-list)|[Python](LeetCode-Python/237.delete-node-in-a-linked-list.py)|NoneCpp|
+|242|[valid-anagram](https://leetcode.com/problems/valid-anagram)|[Python](LeetCode-Python/242.valid-anagram.py)|NoneCpp|
+|257|[binary-tree-paths](https://leetcode.com/problems/binary-tree-paths)|[Python](LeetCode-Python/257.binary-tree-paths.py)|NoneCpp|
 
 ## PAT(BasicLevel)
 
