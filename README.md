@@ -146,6 +146,8 @@
 |237|[delete-node-in-a-linked-list](https://leetcode.com/problems/delete-node-in-a-linked-list)|[Python](LeetCode-Python/237.delete-node-in-a-linked-list.py)|NoneCpp|
 |242|[valid-anagram](https://leetcode.com/problems/valid-anagram)|[Python](LeetCode-Python/242.valid-anagram.py)|NoneCpp|
 |257|[binary-tree-paths](https://leetcode.com/problems/binary-tree-paths)|[Python](LeetCode-Python/257.binary-tree-paths.py)|NoneCpp|
+|258|[add-digits](https://leetcode.com/problems/add-digits)|[Python](LeetCode-Python/258.add-digits.py)|NoneCpp|
+|263|[ugly-number](https://leetcode.com/problems/ugly-number)|[Python](LeetCode-Python/263.ugly-number.py)|NoneCpp|
 
 ## PAT(BasicLevel)
 
