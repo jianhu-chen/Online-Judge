@@ -148,6 +148,11 @@
 |257|[binary-tree-paths](https://leetcode.com/problems/binary-tree-paths)|[Python](LeetCode-Python/257.binary-tree-paths.py)|NoneCpp|
 |258|[add-digits](https://leetcode.com/problems/add-digits)|[Python](LeetCode-Python/258.add-digits.py)|NoneCpp|
 |263|[ugly-number](https://leetcode.com/problems/ugly-number)|[Python](LeetCode-Python/263.ugly-number.py)|NoneCpp|
+|268|[missing-number](https://leetcode.com/problems/missing-number)|[Python](LeetCode-Python/268.missing-number.py)|NoneCpp|
+|283|[move-zeroes](https://leetcode.com/problems/move-zeroes)|[Python](LeetCode-Python/283.move-zeroes.py)|NoneCpp|
+|290|[word-pattern](https://leetcode.com/problems/word-pattern)|[Python](LeetCode-Python/290.word-pattern.py)|NoneCpp|
+|292|[nim-game](https://leetcode.com/problems/nim-game)|[Python](LeetCode-Python/292.nim-game.py)|NoneCpp|
+|326|[power-of-three](https://leetcode.com/problems/power-of-three)|[Python](LeetCode-Python/326.power-of-three.py)|NoneCpp|
 
 ## PAT(BasicLevel)
 
