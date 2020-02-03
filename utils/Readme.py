@@ -18,7 +18,7 @@ from lxml import etree
 
 readme_content = '''# Online-Judge
 
-# 目录说明
+## 目录说明
 
 - utils：小工具包
 
