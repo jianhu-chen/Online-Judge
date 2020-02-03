@@ -1,6 +1,6 @@
 # Online-Judge
 
-# 目录说明
+## 目录说明
 
 - utils：小工具包
 
@@ -152,6 +152,8 @@
 |283|[move-zeroes](https://leetcode.com/problems/move-zeroes)|[Python](LeetCode-Python/283.move-zeroes.py)|NoneCpp|
 |290|[word-pattern](https://leetcode.com/problems/word-pattern)|[Python](LeetCode-Python/290.word-pattern.py)|NoneCpp|
 |292|[nim-game](https://leetcode.com/problems/nim-game)|[Python](LeetCode-Python/292.nim-game.py)|NoneCpp|
+|299|[bulls-and-cows](https://leetcode.com/problems/bulls-and-cows)|[Python](LeetCode-Python/299.bulls-and-cows.py)|NoneCpp|
+|303|[range-sum-query-immutable](https://leetcode.com/problems/range-sum-query-immutable)|[Python](LeetCode-Python/303.range-sum-query-immutable.py)|NoneCpp|
 |326|[power-of-three](https://leetcode.com/problems/power-of-three)|[Python](LeetCode-Python/326.power-of-three.py)|NoneCpp|
 
 ## PAT(BasicLevel)
