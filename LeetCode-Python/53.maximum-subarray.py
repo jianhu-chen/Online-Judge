@@ -42,6 +42,15 @@
 
 # @lc code=start
 
+# 解法1：动态规划
+# 1. 描述问题的最优解结构特征
+# 设 f(i) 表示以第 i 个数字结尾的连续子数组的最大和，则我们最终要求的答案是:
+#       max( f(i) )  0<=i<=n-1
+# 2. 递归定义最优解值
+#       f(i) = max( f(i-1) + nums[i], nums[i])
+# 3. 自底向上计算最优解值
+#       f(0) = nums[0]
+
 
 class Solution(object):
     def maxSubArray(self, nums):
@@ -54,7 +63,7 @@ class Solution(object):
         max_sum = nums[0]
         cur_sum = nums[0]
         for n in nums[1:]:
-            cur_sum = max(cur_sum+n, n)
+            cur_sum = max(cur_sum + n, n)
             max_sum = max(cur_sum, max_sum)
 
         return max_sum
@@ -62,5 +71,6 @@ class Solution(object):
 # @lc code=end
 
 
-print(Solution().maxSubArray([-2, 1, -3, 4, -1, 2, 1, -5, 4]
-                             ))
+if __name__ == "__main__":
+    print(Solution().maxSubArray(
+        [-2, 1, -3, 4, -1, 2, 1, -5, 4]))
