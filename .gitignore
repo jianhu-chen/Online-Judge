@@ -1,8 +1,7 @@
-*/.idea/
-.idea/
-*/.vscode
+.idea
 .vscode
-*/.DS_Store
 .DS_Store
-*/cmake-build-debug/
+cmake-build-debug
 *.pyc
+PAT(BasicLevel)-Cpp
+
