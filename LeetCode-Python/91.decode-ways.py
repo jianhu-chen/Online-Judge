@@ -1,3 +1,12 @@
+# -*- encoding: utf-8 -*-
+'''
+@File    :   91.decode-ways.py
+@Time    :   2020/06/03 01:02:10
+@Author  :   jhchen
+@E-mail  :   jianhuchen@163.com
+@License :   Copyright(C), USTC
+@Desc    :   None
+'''
 #
 # @lc app=leetcode id=91 lang=python
 #
