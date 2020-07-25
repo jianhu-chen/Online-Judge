@@ -68,6 +68,9 @@ class Solution:
         return dp(amount)
 
     def coinChange(self, coins: List[int], amount: int) -> int:
+        """
+        动态规划
+        """
         if amount == 0:
             return 0
         elif amount < 0:
