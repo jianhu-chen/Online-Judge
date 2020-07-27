@@ -4,4 +4,4 @@
 cmake-build-debug
 *.pyc
 PAT(BasicLevel)-Cpp
-
+*.exe
