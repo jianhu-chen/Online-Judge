@@ -1,7 +1,11 @@
+# config file
 .idea
 .vscode
+
+# cache file
 .DS_Store
-cmake-build-debug
 *.pyc
-PAT(BasicLevel)-Cpp
 *.exe
+
+# dir
+__pycache__
