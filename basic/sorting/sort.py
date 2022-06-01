@@ -2,92 +2,83 @@
 from typing import List
 
 
-def bubble_sort(nums: List[int]):
-    n = len(nums)
-    if n < 2:
-        return
+def selection_sort(array: List[int]) -> None:
+    """
+    选择排序. 在无序区间中选择最小的元素, 将其放到有序区间的末尾.
 
-    for i in range(n - 1):
-        for j in range(n - 1 - i):
-            if nums[j] > nums[j + 1]:
-                nums[j], nums[j + 1] = nums[j + 1], nums[j]
-
-
-def selection_sort(nums: List[int]):
-    n = len(nums)
+    Parameters
+    ----------
+    array : List[int]
+        待排序数组.
+    """
+    n = len(array)
     if n < 2:
         return
 
     for i in range(n - 1):
         min_num_idx = i
         for j in range(i + 1, n):
-            if nums[j] < nums[min_num_idx]:
+            if array[j] < array[min_num_idx]:
                 min_num_idx = j
 
         if i != min_num_idx:
-            nums[i], nums[min_num_idx] = nums[min_num_idx], nums[i]
+            array[i], array[min_num_idx] = array[min_num_idx], array[i]
 
 
-def insertion_sort(nums: List[int]):
-    n = len(nums)
+def bubble_sort(array: List[int]) -> None:
+    """
+    冒泡排序. 在无序区间中通过连续比较相邻的元素, 将最大的元素放到有序区间的末尾.
+
+    Parameters
+    ----------
+    array : List[int]
+        待排序数组.
+    """
+    n = len(array)
+    if n < 2:
+        return
+
+    for i in range(n - 1):
+        for j in range(n - 1 - i):
+            if array[j] > array[j + 1]:
+                array[j], array[j + 1] = array[j + 1], array[j]
+
+
+def insertion_sort(array: List[int]) -> None:
+    """
+    插入排序. 将无序区间中的每一个元素插入到有序区间中的适当位置.
+
+    Parameters
+    ----------
+    array : List[int]
+        待排序数组.
+    """
+    n = len(array)
     if n < 2:
         return
 
     for i in range(1, n):
         for j in range(i, 0, -1):
-            if nums[j] < nums[j - 1]:
-                nums[j], nums[j - 1] = nums[j - 1], nums[j]
+            if array[j] < array[j - 1]:
+                array[j], array[j - 1] = array[j - 1], array[j]
 
 
-def quick_sort(nums: List[int]):
-    n = len(nums)
-    if n < 2:
-        return
+def merge_sort(array: List[int]) -> List[int]:
+    """
+    归并排序. 将无序区间分成两个子区间, 对每个子区间进行排序, 然后将两个排序好的子区间合并成一个有序区间.
 
-    def _sort(nums: List[int], start: int, end: int):
-        if start >= end:
-            return
+    Parameters
+    ----------
+    array : List[int]
+        待排序数组.
 
-        pivot = nums[start]
-        left, right = start, end
-        while left < right:
-            while left < right and nums[right] > pivot:
-                right -= 1
-            nums[left] = nums[right]
+    Returns
+    -------
+    List[int]
+        排序后的数组.
+    """
 
-            while left < right and nums[left] <= pivot:
-                left += 1
-            nums[right] = nums[left]
-
-        nums[left] = pivot
-        _sort(nums, start, left - 1)
-        _sort(nums, left + 1, end)
-
-    _sort(nums, 0, len(nums) - 1)
-
-
-def shell_sort(nums: List[int]):
-    n = len(nums)
-    if n < 2:
-        return
-
-    gap = n
-    while True:
-        gap //= 2
-        if gap == 0:
-            return
-        for i in range(gap, n):
-            for j in range(i, 0, -gap):
-                if nums[j] < nums[j-gap]:
-                    nums[j], nums[j-gap] = nums[j-gap], nums[j]
-
-
-def merge_sort(nums: List[int]) -> List[int]:
-    n = len(nums)
-    if n < 2:
-        return
-
-    def _merge(left: List[int], right: List[int]):
+    def _merge(left: List[int], right: List[int]) -> List[int]:
         i, j = 0, 0
         ret = []
 
@@ -103,49 +94,95 @@ def merge_sort(nums: List[int]) -> List[int]:
         ret += right[j:]
         return ret
 
-    def _divide(nums: List[int]):
-        if len(nums) < 2:
-            return nums
+    def _divide(array: List[int]) -> List[List[int]]:
+        if len(array) < 2:
+            return array
 
-        mid = len(nums) // 2
-        left = _divide(nums[:mid])
-        right = _divide(nums[mid:])
+        mid = len(array) // 2
+        left = _divide(array[:mid])
+        right = _divide(array[mid:])
         return _merge(left, right)
 
-    return _divide(nums)
+    return _divide(array)
 
 
-def heap_sort(nums: List[int]) -> List[int]:
-    n = len(nums)
+def quick_sort(array):
+    """
+    快速排序.
+    """
+    n = len(array)
     if n < 2:
         return
 
-    def _heapify(nums: List[int], idx: int, n: int = None):
+    def _sort(array, start: int, end: int):
+        if start >= end:
+            return
+
+        pivot = array[start]
+        left, right = start, end
+        while left < right:
+            while left < right and array[right] > pivot:
+                right -= 1
+            array[left] = array[right]
+
+            while left < right and array[left] <= pivot:
+                left += 1
+            array[right] = array[left]
+
+        array[left] = pivot
+        _sort(array, start, left - 1)
+        _sort(array, left + 1, end)
+
+    _sort(array, 0, len(array) - 1)
+
+
+def heap_sort(array) -> List[int]:
+    n = len(array)
+    if n < 2:
+        return
+
+    def _heapify(array, idx: int, n: int = None):
         c1_idx = 2 * idx + 1
         c2_idx = 2 * idx + 2
 
         max_idx = idx
         if n is None:
-            n = len(nums)
-        if c1_idx < n and nums[c1_idx] > nums[max_idx]:
+            n = len(array)
+        if c1_idx < n and array[c1_idx] > array[max_idx]:
             max_idx = c1_idx
-        if c2_idx < n and nums[c2_idx] > nums[max_idx]:
+        if c2_idx < n and array[c2_idx] > array[max_idx]:
             max_idx = c2_idx
 
         if max_idx != idx:
-            nums[idx], nums[max_idx] = nums[max_idx], nums[idx]
-            _heapify(nums, max_idx, n)
+            array[idx], array[max_idx] = array[max_idx], array[idx]
+            _heapify(array, max_idx, n)
 
-    def _build_heap(nums: List[int]):
-        n = len(nums)
+    def _build_heap(array):
+        n = len(array)
         latest_node_idx = n - 1
         parent_node_idx = (latest_node_idx - 1) // 2
 
         for i in range(parent_node_idx, -1, -1):
-            _heapify(nums, i)
+            _heapify(array, i)
 
-    _build_heap(nums)
-    n = len(nums)
-    for i in range(n-1, -1, -1):
-        nums[i], nums[0] = nums[0], nums[i]
-        _heapify(nums, idx=0, n=i)
+    _build_heap(array)
+    n = len(array)
+    for i in range(n - 1, -1, -1):
+        array[i], array[0] = array[0], array[i]
+        _heapify(array, idx=0, n=i)
+
+
+def shell_sort(array):
+    n = len(array)
+    if n < 2:
+        return
+
+    gap = n
+    while True:
+        gap //= 2
+        if gap == 0:
+            return
+        for i in range(gap, n):
+            for j in range(i, 0, -gap):
+                if array[j] < array[j - gap]:
+                    array[j], array[j - gap] = array[j - gap], array[j]
