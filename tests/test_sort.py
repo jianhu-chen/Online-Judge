@@ -4,9 +4,16 @@ import random
 import unittest
 from copy import deepcopy
 
-from sort import heap_sort, merge_sort, quick_sort, bubble_sort, insertion_sort, selection_sort
-from bitwise import swap, one_number_odd_times, two_number_odd_times
-from examples import (
+from basic.sort import (
+    heap_sort,
+    merge_sort,
+    quick_sort,
+    bubble_sort,
+    insertion_sort,
+    selection_sort
+)
+from basic.bitwise import swap, one_number_odd_times, two_number_odd_times
+from basic.examples import (
     local_minimum,
     binary_search_exist,
     binary_search_near_left,
