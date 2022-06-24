@@ -1,4 +1,19 @@
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
+import time
+import random
+import string
+import unittest
+
+
+def timer(func):
+    def wrapper(*args, **kwargs):
+        start = time.perf_counter()
+        func(*args, **kwargs)
+        end = time.perf_counter()
+        print("{:<30} cost: {} ms".format(func.__name__, (end - start) * 1000))
+    return wrapper
+
 
 def palindrome_str(str: str) -> int:
     str = "#" + "#".join(list(str)) + "#"
@@ -39,6 +54,23 @@ def manacher_str(str: str) -> int:
     return max_r - 1
 
 
+def random_string(min_length: int, max_length: int) -> str:
+    return "".join(
+        random.choice(string.ascii_letters)
+        for _ in range(random.randint(min_length, max_length))
+    )
+
+
+class TestPalindrome(unittest.TestCase):
+
+    def test_manacher_str(self):
+        TEST_TIMES = 10  # 10w times test
+        MIN_LENGTH = 1
+        MAX_LENGTH = 100000
+        for _ in range(TEST_TIMES):
+            s = random_string(MIN_LENGTH, MAX_LENGTH)
+            self.assertEqual(palindrome_str(s), manacher_str(s))
+
+
 if __name__ == "__main__":
-    str = "sadassffesadww"
-    print(manacher_str(str))
+    unittest.main()

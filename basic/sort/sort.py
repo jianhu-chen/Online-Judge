@@ -1,4 +1,8 @@
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
+import random
+import unittest
+from copy import deepcopy
 from typing import List
 
 
@@ -186,3 +190,102 @@ def shell_sort(array):
             for j in range(i, 0, -gap):
                 if array[j] < array[j - gap]:
                     array[j], array[j - gap] = array[j - gap], array[j]
+
+
+TEST_TIMES = 1000
+MIN_SIZE = 1
+MAX_SIZE = 100
+MIN_VALUE = 0
+MAX_VALUE = 99999
+
+
+def random_array(
+    min_size: int = MIN_SIZE,
+    max_size: int = MAX_SIZE,
+    min_value: int = MIN_VALUE,
+    max_value: int = MAX_VALUE,
+    remove_duplicate: bool = False
+) -> list:
+    """
+    Parameters
+    ----------
+    min_size : int
+        The minimum size of the array.
+    max_size : int
+        The maximum size of the array.
+    min_value : int
+        The minimum value of the array.
+    max_value : int
+        The maximum value of the array.
+    remove_duplicate : bool
+        Whether to remove duplicate elements.
+
+    Returns
+    -------
+    list
+        A list of random integers.
+    """
+    assert min_size > 0 and max_size > 1 and min_value < max_value
+    assert min_value < max_value
+
+    def _generate():
+        size = random.randint(min_size, max_size)
+        # range: [min_value, max_value]
+        array = [random.randint(min_value, max_value) for _ in range(size)]
+        if remove_duplicate:
+            array = list(set(array))
+        random.shuffle(array)
+        return array
+
+    array = _generate()
+    while len(array) < min_size:
+        array = _generate()
+    return array
+
+
+class TestSort(unittest.TestCase):
+
+    def test_selection_sort(self):
+        for _ in range(TEST_TIMES):
+            array = random_array()
+            result = deepcopy(array)
+            selection_sort(result)
+            self.assertEqual(result, sorted(array))
+
+    def test_bubble_sort(self):
+        for _ in range(TEST_TIMES):
+            array = random_array()
+            result = deepcopy(array)
+            bubble_sort(result)
+            self.assertEqual(result, sorted(array))
+
+    def test_insertion_sort(self):
+        for _ in range(TEST_TIMES):
+            array = random_array()
+            result = deepcopy(array)
+            insertion_sort(result)
+            self.assertEqual(result, sorted(array))
+
+    def test_merge_sort(self):
+        for _ in range(TEST_TIMES):
+            array = random_array()
+            result = merge_sort(array)
+            self.assertEqual(result, sorted(array))
+
+    def test_quick_sort(self):
+        for _ in range(TEST_TIMES):
+            array = random_array()
+            result = deepcopy(array)
+            quick_sort(result)
+            self.assertEqual(result, sorted(array))
+
+    def test_heap_sort(self):
+        for _ in range(TEST_TIMES):
+            array = random_array()
+            result = deepcopy(array)
+            heap_sort(result)
+            self.assertEqual(result, sorted(array))
+
+
+if __name__ == "__main__":
+    unittest.main()
