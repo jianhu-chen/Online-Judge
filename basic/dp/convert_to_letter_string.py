@@ -8,4 +8,13 @@ class ConvertToLetterString:
     "AAA"、"KA"和"AK"
     给定一个只有数字字符组成的字符串str,返回有多少种转化结果
     """
-    pass
+
+    def solution_recursion(self, s: str) -> int:
+        
+        def process(s, start)
+
+    def solution_memory_search(self, s: str) -> int:
+        pass
+
+    def solution_dp(self, s: str) -> int:
+        pass
