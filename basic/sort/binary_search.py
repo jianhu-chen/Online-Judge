@@ -135,7 +135,6 @@ def random_array(
         A list of random integers.
     """
     assert min_size > 0 and max_size > 1 and min_value < max_value
-    assert min_value < max_value
 
     def _generate():
         size = random.randint(min_size, max_size)
