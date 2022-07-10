@@ -1,0 +1,150 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""从力扣更新周赛题库到本地."""
+import os
+import re
+import sys
+import json
+
+import requests
+
+TEMPLET = """#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+# {url}
+{imp}
+{code}
+"""
+
+README = """# 第 {num} 场周赛
+
+> 企业: {company}
+"""
+
+
+def get_problem_by_slug(slug: str) -> dict:
+    url = "https://leetcode.cn/graphql"
+    params = {
+        "operationName": "getQuestionDetail",
+        "variables": {"titleSlug": slug},
+        "query": """query getQuestionDetail($titleSlug: String!) {
+            question(titleSlug: $titleSlug) {
+                questionId
+                questionFrontendId
+                questionTitle
+                questionTitleSlug
+                content
+                difficulty
+                stats
+                similarQuestions
+                categoryTitle
+                topicTags {
+                        name
+                        slug
+                }
+                translatedContent
+                translatedTitle
+                codeSnippets {
+                    lang
+                    code
+                }
+            }
+        }"""
+    }
+
+    json_data = json.dumps(params).encode('utf8')
+    headers = {
+        "User-Agent": (
+            "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 "
+            "(KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36"
+        ),
+        "Connection": "keep-alive",
+        "Content-Type": "application/json",
+        "Referer": "https://leetcode.cn/problems/" + slug
+    }
+    resp = requests.post(url, data=json_data, headers=headers, timeout=10)
+    content = resp.json()
+
+    # 题目详细信息
+    question = content['data']['question']
+    return question
+
+
+def download_weekly_contest(num: int):
+    if os.path.exists(f"{num}"):
+        print(f"目录: ./{num} 已存在, 跳过!")
+        return
+
+    os.makedirs(f"{num}")
+
+    url = f"https://leetcode.cn/contest/api/info/weekly-contest-{num}/"
+    resp = requests.get(url).json()
+    company = resp["company"]["name"]
+    print("公司:", company)
+    readme = README.format(num=num, company=company)
+
+    questions = resp["questions"]
+    for idx, ques in enumerate(questions, 1):
+        title = ques["title"]
+        english_title = ques["english_title"]
+        print(f"正在下载第 {idx} 题:", title, "/", english_title)
+        slug = ques["title_slug"]
+        question = get_problem_by_slug(slug)
+        question_id = question["questionFrontendId"]
+        file = f"{question_id}.{slug.replace('-', '_')}.py"
+        code = list(filter(lambda x: x["lang"] == "Python3", question["codeSnippets"]))[0]["code"]
+        url = f"https://leetcode.cn/problems/{slug}"
+        with open(f"./{num}/{file}", "w") as fp:
+            fp.write(
+                TEMPLET.format(
+                    url=url,
+                    imp="from typing import List\n\n" if "List" in code else "",
+                    code=code
+                )
+            )
+        # README
+        content = re.sub(r"<p>|</p>|&nbsp;", "", question["translatedContent"]).strip()
+        content = content.replace("&lt;", "<")
+        content = content.replace("&gt;", ">")
+        readme += f"""
+## {question_id}.{title}
+
+[打开力扣]({url}) [我的代码]({file})
+
+{content}
+"""
+
+    # dump README
+    with open(f"./{num}/README.md", "w") as fp:
+        fp.write(readme)
+
+
+def update_index():
+    nums = [int(num) for num in os.listdir(".") if num.isdigit()]
+    nums.sort()
+    readme = """# 力扣周赛\n\n"""
+    lines = [
+        f"- [第 {num} 场周赛]({num})"
+        for num in nums
+    ]
+    tail = """
+> 自动下载周赛题目并更新此索引目录:
+> ```shell
+> ./download [周赛场号]
+> ```
+"""
+    with open("README.md", "w") as fp:
+        fp.write(
+            readme + "\n\n".join(lines) + "\n" + tail
+        )
+
+
+if __name__ == "__main__":
+    if len(sys.argv) != 2:
+        print(f"Usage: {sys.argv[0]} [周赛场号]")
+        exit()
+
+    num = int(sys.argv[1])
+    print(f"尝试下载第 {num} 场周赛题目")
+    download_weekly_contest(num)
+    update_index()
+    print("完成!")
