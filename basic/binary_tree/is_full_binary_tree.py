@@ -11,12 +11,50 @@ class IsFullBinaryTree:
     def solution1(self, root: Node) -> bool:
         if not root:
             return True
-        pass
+
+        # (noode, level)
+        queue = [(root, 0)]
+        cur_level = 0
+        cur_level_nodes = 0
+        while queue:
+            node, level = queue.pop(0)
+            if level != cur_level:
+                if 2 ** cur_level != cur_level_nodes:
+                    return False
+                cur_level += 1
+                cur_level_nodes = 1
+            else:
+                cur_level_nodes += 1
+
+            if node.left:
+                queue.append((node.left, level + 1))
+            if node.right:
+                queue.append((node.right, level + 1))
+
+        # last level
+        if 2 ** cur_level != cur_level_nodes:
+            return False
+
+        return True
 
     def solution2(self, root: Node) -> bool:
         if not root:
             return True
-        pass
+
+        def process(node):
+            """返回是否是完全二叉树以及子树节点个数."""
+            if not node:
+                return (True, 0)
+
+            left = process(node.left)
+            right = process(node.right)
+
+            if left[0] and right[0] and left[1] == right[1]:
+                return (True, left[1] + right[1] + 1)
+            else:
+                return (False, 0)
+
+        return process(root)[0]
 
 
 class Tester(unittest.TestCase):
