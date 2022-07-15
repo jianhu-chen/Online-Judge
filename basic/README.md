@@ -9,7 +9,9 @@
 4. [二叉树](binary_tree)
 
 5. [图](graph)
+   
+6. [字典树](trie)
 
-6. [滑动窗口](sliding_window)
+8. [滑动窗口](sliding_window)
 
-7. [单调栈](monotonic_stack)
+9. [单调栈](monotonic_stack)
