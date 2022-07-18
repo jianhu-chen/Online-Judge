@@ -12,6 +12,8 @@
    
 6. [字典树](trie)
 
+7. [贪心](greedy)
+
 8. [滑动窗口](sliding_window)
 
 9. [单调栈](monotonic_stack)
