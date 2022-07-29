@@ -5,15 +5,6 @@ import random
 import unittest
 
 
-def timer(func):
-    def wrapper(*args, **kwargs):
-        start = time.perf_counter()
-        func(*args, **kwargs)
-        end = time.perf_counter()
-        print("{:<30} cost: {} ms".format(func.__name__, (end - start) * 1000))
-    return wrapper
-
-
 class CardsInLine:
     """
     给定一个整型数组arr, 代表数值不同的纸牌排成一条线
@@ -112,15 +103,25 @@ class TestCardsInLine(unittest.TestCase):
     def test_solution(self):
         TEST_TIMES = 10
         obj = CardsInLine()
+        s1_cost, s2_cost, s3_cost = 0, 0, 0
         for _ in range(TEST_TIMES):
             arr = list(range(1, 100))
             random.shuffle(arr)
-            arr = arr[0:random.randint(1, 30)]
+            arr = arr[0:random.randint(1, 25)]
+            s = time.perf_counter()
             A = obj.solution_recursion(arr)
+            s1_cost += time.perf_counter() - s
+            s = time.perf_counter()
             B = obj.solution_memory_search(arr)
+            s2_cost += time.perf_counter() - s
+            s = time.perf_counter()
             C = obj.solution_dp(arr)
+            s3_cost += time.perf_counter() - s
             self.assertEqual(A, B, arr)
             self.assertEqual(B, C, arr)
+        print("solution1 cost: {}".format(s1_cost))
+        print("solution2 cost: {}".format(s2_cost))
+        print("solution3 cost: {}".format(s3_cost))
 
 
 if __name__ == '__main__':

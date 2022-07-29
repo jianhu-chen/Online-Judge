@@ -5,15 +5,6 @@ import random
 import unittest
 
 
-def timer(func):
-    def wrapper(*args, **kwargs):
-        start = time.perf_counter()
-        func(*args, **kwargs)
-        end = time.perf_counter()
-        print("{:<30} cost: {} ms".format(func.__name__, (end - start) * 1000))
-    return wrapper
-
-
 class RobotWalk:
     """
     假设有排成一行的N个位置记为1~N, N一定大于或等于2
@@ -88,19 +79,31 @@ class RobotWalk:
 class TestRobotWalk(unittest.TestCase):
 
     def test_solution(self):
-        TEST_TIMES = 10
+        TEST_TIMES = 1000
         obj = RobotWalk()
+        s1_cost = 0
+        s2_cost = 0
+        s3_cost = 0
         for _ in range(TEST_TIMES):
-            N = random.randint(2, 20)
+            N = random.randint(2, 10)
             rest = random.randint(1, 2 * N)  # range: [1, 2 * N]
             start = random.randint(1, N)  # range: [1, N]
             end = random.randint(1, N)  # range: [1, N]
             args = (N, rest, start, end)
+            s = time.perf_counter()
             A = obj.solution_recursion(*args)
+            s1_cost += time.perf_counter() - s
+            s = time.perf_counter()
             B = obj.solution_memory_search(*args)
+            s2_cost += time.perf_counter() - s
+            s = time.perf_counter()
             C = obj.solution_dp(*args)
+            s3_cost += time.perf_counter() - s
             self.assertEqual(A, B, args)
             self.assertEqual(B, C, args)
+        print("solution1 cost: {}".format(s1_cost))
+        print("solution2 cost: {}".format(s2_cost))
+        print("solution3 cost: {}".format(s3_cost))
 
 
 if __name__ == '__main__':
