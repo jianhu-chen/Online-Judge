@@ -57,9 +57,11 @@ class CoinWays:
         for i in range(len(coins) - 1, -1, -1):
             for a in range(1, amount + 1):
                 dp[i][a] = dp[i + 1][a]
-                # TODO
                 if a - coins[i][0] >= 0:
                     dp[i][a] += dp[i][a - coins[i][0]]
+                # TODO (jianhu): why?
+                if a - coins[i][0] * (coins[i][1] + 1) >= 0:
+                    dp[i][a] -= dp[i + 1][a - coins[i][0] * (coins[i][1] + 1)]
         return dp[0][amount]
 
 

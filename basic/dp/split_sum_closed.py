@@ -14,9 +14,7 @@ class SplitSumClosed:
     """
 
     def solution1(self, arr: List[int]):
-        def process(arr, idx):
-            if idx == len(arr):
-                pass
+        pass
 
     def solution2(self, arr: List[int]):
         pass
