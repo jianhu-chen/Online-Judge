@@ -7,33 +7,35 @@
 
   <img src="https://algorithmtutor.com/images/graph_representation_directed.png" width=50%>
 
-- [广度优先遍历](bfs.py) (利用队列实现)
+- [x] [广度优先遍历](bfs.py) (利用队列实现)
 
   1. 将源节点入队
   2. 弹出一个节点, 把该节点所有没有进过队列的邻接节点入队列
   3. 重复2, 直到队列为空
 
-- [深度优先遍历](dfs.py) (利用栈实现)
+- [x] [深度优先遍历](dfs.py) (利用栈实现)
 
   1. 将源节点入栈
   2. 弹出一个节点, 检查该节点是否有邻居没有进过栈, 如果有, 将该节点和此邻居以此入栈 (只入栈一个邻节点)
   3. 重复2, 直到栈为空
 
 
-- [拓扑排序算法](topology_sort.py)
+- [ ] [拓扑排序算法](topology_sort.py)
 
   适用范围: 有向图, 且有入度为0的节点, 且没有环
   实际应用: 编译工程时的依赖问题
 
-- [kruskal算法](kruskal.py)
+- [ ] [kruskal算法](kruskal.py)
 
   适用范围: 无向图, 生成一个最小生成树
   主要思想: 将所有边排序, 不断加入边, 如果形成环, 则删除该边, 否则留下该边
 
-- [prim算法](prim.py)
+- [ ] [prim算法](prim.py)
 
   适用范围: 无向图, 生成一个最小生成树
 
-- [dijkstra算法](dijkstra.py)
+- [ ] [dijkstra算法](dijkstra.py)
 
   适用范围: 边的权值非负, 生成一个最短路径
+
+- [] [岛问题](number_of_islands.py)

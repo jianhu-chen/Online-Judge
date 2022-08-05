@@ -8,13 +8,24 @@ class Node:
 
     def __init__(self, val: Any) -> None:
         self.val = val
-        self.indegree: int = 0
-        self.outdegree: int = 0
+        self.indegree: int = 0  # 入度, 自动维护
+        self.outdegree: int = 0  # 出度, 自动维护
         self.nexts: List[Node] = []
         self.edges: List[Edge] = []
 
     def __repr__(self) -> str:
         return "Node(" + str(self.val) + ")"
+
+    @property
+    def nexts(self) -> List['Node']:
+        return self._nexts
+
+    @nexts.setter
+    def nexts(self, nexts: List['Node']) -> None:
+        self._nexts = nexts
+        self.outdegree = len(nexts)
+        for next in nexts:
+            next.indegree += 1
 
     __str__ = __repr__
 
@@ -60,7 +71,7 @@ class JsonEncoder(json.JSONEncoder):
 
 class Graph:
 
-    def __init__(self, nodes: Mapping[Any, Node], edges: Set) -> None:
+    def __init__(self, nodes: Mapping[Any, Node], edges: Set[Edge]) -> None:
         self.nodes: Mapping[Any, Node] = nodes
         self.edges: Set = edges
 

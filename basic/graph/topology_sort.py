@@ -3,7 +3,7 @@
 import unittest
 from typing import List, Mapping
 
-from utils import Node, Graph
+from utils import Edge, Node, Graph
 
 
 class TopologySort:
@@ -34,8 +34,31 @@ class TopologySort:
 class Tester(unittest.TestCase):
 
     def test_solution(self):
-        # TODO
-        pass
+        obj = TopologySort()
+        nodes = {i: Node(i) for i in range(8)}
+        # 0 -> 7 -> 1 -> 3 -> 4 -> 5
+        #       ↘-> 2 ↗   ↘ 6 ↑
+        nodes[0].nexts = [nodes[7]]
+        nodes[7].nexts = [nodes[1], nodes[2]]
+        nodes[1].nexts = [nodes[3]]
+        nodes[2].nexts = [nodes[3]]
+        nodes[3].nexts = [nodes[4], nodes[6]]
+        nodes[6].nexts = [nodes[4]]
+        nodes[4].nexts = [nodes[5]]
+        edges = set((
+            Edge(1, nodes[0], nodes[7]),
+            Edge(1, nodes[7], nodes[1]),
+            Edge(1, nodes[7], nodes[2]),
+            Edge(1, nodes[1], nodes[3]),
+            Edge(1, nodes[2], nodes[3]),
+            Edge(1, nodes[3], nodes[4]),
+            Edge(1, nodes[3], nodes[6]),
+            Edge(1, nodes[6], nodes[4]),
+            Edge(1, nodes[4], nodes[5]),
+        ))
+        graph = Graph(nodes, edges)
+        ans = obj.solution(graph)
+        print(ans)
 
 
 if __name__ == "__main__":
