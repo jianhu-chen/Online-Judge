@@ -51,7 +51,7 @@ class SmallSum:
                     help.append(array[i])
                     ans += (R - j + 1) * array[i]
                     i += 1
-                else:
+                else:  # NOTE: 此处与常规归并排序不同, 要先拷贝右组
                     help.append(array[j])
                     j += 1
 

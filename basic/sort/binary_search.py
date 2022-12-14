@@ -29,7 +29,7 @@ def binary_search_exist(sorted_array: List, num: int) -> int:
 
 def binary_search_near_left(sorted_array: List, num: int) -> int:
     """
-    查找大于等于某个数字的最小的数字的位置.
+    查找大于等于某个数字的最左侧的位置.
 
     Returns
     -------
@@ -51,7 +51,7 @@ def binary_search_near_left(sorted_array: List, num: int) -> int:
 
 def binary_search_near_right(sorted_array: List, num: int) -> int:
     """
-    查找小于等于某个数字的最大的数字的位置.
+    查找小于等于某个数字的最右侧的位置.
 
     Returns
     -------

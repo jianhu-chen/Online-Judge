@@ -71,7 +71,7 @@ def insertion_sort(array: List[int]) -> None:
     if n < 2:
         return
 
-    for i in range(1, n):
+    for i in range(1, n):  # 要做到0-i范围的数有序
         for j in range(i, 0, -1):
             if array[j] < array[j - 1]:
                 array[j], array[j - 1] = array[j - 1], array[j]
@@ -204,11 +204,9 @@ def heap_sort(array):
         return
 
     from heap import Heap
-    h = Heap(max_size=n)
-    h.build_heap(array)
+    h = Heap.from_list(array, inplace=True)
     while not h.empty():
-        array[n - 1] = h.pop()
-        n -= 1
+        h.pop()
 
 
 def count_sort(array):
