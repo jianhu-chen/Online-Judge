@@ -101,11 +101,14 @@ if __name__ == "__main__":
     translatedContent = question["translatedContent"]
     url = f"https://leetcode.cn/problems/{titleSlug}"
 
+    import_libs = ",".join(x for x in ("List", "Optional") if x in code)
     with open(file, "w") as fp:
         fp.write(
             TEMPLET.format(
                 url=url,
-                imp="from typing import List\n\n" if "List" in code else "",
+                imp="from typing import {libs}\n\n".format(
+                    libs=import_libs
+                ) if import_libs else "",
                 code=code
             )
         )
