@@ -10,9 +10,7 @@ from utils import Node, random_tree
 class PreOrderTraversal:
 
     def solution1(self, root: Node) -> List[Node]:
-        """
-        递归实现.
-        """
+        """递归实现."""
         if not root:
             return []
 
@@ -21,9 +19,7 @@ class PreOrderTraversal:
         return [root] + left + right
 
     def solution2(self, root: Node) -> List[Node]:
-        """
-        迭代实现.
-        """
+        """迭代实现."""
         if not root:
             return []
 
@@ -31,9 +27,10 @@ class PreOrderTraversal:
         result = []
         while stack:
             node = stack.pop()
-            if node:
-                result.append(node)
+            result.append(node)
+            if node.right is not None:
                 stack.append(node.right)
+            if node.left is not None:
                 stack.append(node.left)
         return result
 
@@ -41,9 +38,7 @@ class PreOrderTraversal:
 class InOrderTraversal:
 
     def solution1(self, root: Node) -> List[Node]:
-        """
-        递归实现.
-        """
+        """递归实现."""
         if not root:
             return []
 
@@ -52,9 +47,7 @@ class InOrderTraversal:
         return left + [root] + right
 
     def solution2(self, root: Node) -> List[Node]:
-        """
-        迭代实现.
-        """
+        """迭代实现."""
         if not root:
             return []
 
@@ -74,9 +67,7 @@ class InOrderTraversal:
 class PostOrderTraversal:
 
     def solution1(self, root: Node) -> List[Node]:
-        """
-        递归实现.
-        """
+        """递归实现."""
         if not root:
             return []
 
@@ -85,8 +76,7 @@ class PostOrderTraversal:
         return left + right + [root]
 
     def solution2(self, root: Node) -> List[Node]:
-        """
-        迭代实现.
+        """迭代实现.
 
         1. 根节点进栈
         2. 顶部节点出栈, 若非空, 入收集栈, 将左右孩子进栈
@@ -99,9 +89,10 @@ class PostOrderTraversal:
         result = []
         while stack:
             node = stack.pop()
-            if node:
-                result.append(node)
+            result.append(node)
+            if node.left is not None:
                 stack.append(node.left)
+            if node.right is not None:
                 stack.append(node.right)
         return result[::-1]
 

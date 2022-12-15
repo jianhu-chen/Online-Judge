@@ -17,8 +17,7 @@ def timer(func):
 
 
 def selection_sort(array: List[int]) -> None:
-    """
-    选择排序. 在无序区间中选择最小的元素, 将其放到有序区间的末尾.
+    """选择排序. 在无序区间中选择最小的元素, 将其放到有序区间的末尾.
 
     Parameters
     ----------
@@ -40,8 +39,7 @@ def selection_sort(array: List[int]) -> None:
 
 
 def bubble_sort(array: List[int]) -> None:
-    """
-    冒泡排序. 在无序区间中通过连续比较相邻的元素, 将最大的元素放到有序区间的末尾.
+    """冒泡排序. 在无序区间中通过连续比较相邻的元素, 将最大的元素放到有序区间的末尾.
 
     Parameters
     ----------
@@ -53,14 +51,13 @@ def bubble_sort(array: List[int]) -> None:
         return
 
     for i in range(n - 1):
-        for j in range(n - 1 - i):
-            if array[j] > array[j + 1]:
-                array[j], array[j + 1] = array[j + 1], array[j]
+        for j in range(1, n - i):
+            if array[j] < array[j - 1]:
+                array[j], array[j - 1] = array[j - 1], array[j]
 
 
 def insertion_sort(array: List[int]) -> None:
-    """
-    插入排序. 将无序区间中的每一个元素插入到有序区间中的适当位置.
+    """插入排序. 将无序区间中的每一个元素插入到有序区间中的适当位置.
 
     Parameters
     ----------
@@ -78,8 +75,7 @@ def insertion_sort(array: List[int]) -> None:
 
 
 def merge_sort(array: List[int]) -> None:
-    """
-    归并排序. 将无序区间分成两个子区间, 对每个子区间进行排序, 然后将两个排序好的子区间合并成一个有序区间.
+    """归并排序. 将无序区间分成两个子区间, 对每个子区间进行排序, 然后将两个排序好的子区间合并成一个有序区间.
 
     Parameters
     ----------
@@ -181,9 +177,7 @@ def _quick_sort_v3(array, L: int, R: int):
 
 
 def quick_sort(array, version=3) -> None:
-    """
-    快速排序.
-    """
+    """快速排序."""
     n = len(array)
     if n < 2:
         return
@@ -196,9 +190,7 @@ def quick_sort(array, version=3) -> None:
 
 
 def heap_sort(array):
-    """
-    堆排序.
-    """
+    """堆排序."""
     n = len(array)
     if n < 2:
         return
@@ -210,9 +202,7 @@ def heap_sort(array):
 
 
 def count_sort(array):
-    """
-    计数排序.
-    """
+    """计数排序."""
     n = len(array)
     if n < 2:
         return
@@ -230,9 +220,7 @@ def count_sort(array):
 
 
 def radix_sort(array):
-    """
-    基数排序.
-    """
+    """基数排序."""
     n = len(array)
     if n < 2:
         return
@@ -250,11 +238,13 @@ def radix_sort(array):
     help = [0 for _ in range(n)]
     for d in range(max_digit):
         count = [0 for _ in range(radix)]
+        # 统计各数字第d位的词频
         for num in array:
             count[num // (radix ** d) % radix] += 1
+        # 词频前缀和, count[i]表示d位小于等于i的数字个数
         for i in range(1, radix):
             count[i] += count[i - 1]
-        for i in range(n - 1, -1, -1):
+        for i in reversed(range(n)):
             j = array[i] // (radix ** d) % radix
             help[count[j] - 1] = array[i]
             count[j] -= 1
@@ -262,24 +252,22 @@ def radix_sort(array):
 
 
 def shell_sort(array):
-    """
-    希尔排序. 插入排序的改进版本.
-    希尔排序是把记录按下标的一定增量分组, 对每组使用直接插入排序算法排序
-    随着增量逐渐减少, 每组包含的关键词越来越多, 当增量减至1时, 整个文件恰被分成一组, 算法便终止。
+    """希尔排序.
+
+    插入排序的改进版本. 希尔排序是把记录按下标的一定增量分组, 对每组使用直接插入排序算法排序 随着增量逐渐减少, 每组包含的关键词越来越多,
+    当增量减至1时, 整个文件恰被分成一组, 算法便终止。
     """
     n = len(array)
     if n < 2:
         return
 
-    gap = n
-    while True:
-        gap //= 2
-        if gap == 0:
-            return
+    gap = n // 2
+    while gap > 0:
         for i in range(gap, n):
             for j in range(i, 0, -gap):
                 if array[j] < array[j - gap]:
                     array[j], array[j - gap] = array[j - gap], array[j]
+        gap //= 2
 
 
 TEST_TIMES = 1000

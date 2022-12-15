@@ -6,9 +6,7 @@ from typing import List
 
 
 class CountRangeSum:
-    """
-    给定一个数组arr, 两个整数lower和upper,
-    返回arr中有多少个子数组的累加和在[lower,upper]范围上.
+    """给定一个数组arr, 两个整数lower和upper, 返回arr中有多少个子数组的累加和在[lower,upper]范围上.
 
     示例1:
     输入: nums = [-2,5,-1], lower = -2, upper = 2
@@ -23,9 +21,7 @@ class CountRangeSum:
     """
 
     def solution1(self, array: List, lower: int, upper: int) -> int:
-        """
-        暴力解法.
-        """
+        """暴力解法."""
         if not array:
             return 0
 
@@ -38,9 +34,7 @@ class CountRangeSum:
         return ans
 
     def solution2(self, array: List, lower: int, upper: int) -> int:
-        """
-        分治法.
-        """
+        """分治法."""
         if not array:
             return 0
 
@@ -98,10 +92,10 @@ class CountRangeSum:
 
 
 TEST_TIMES = 10000
-MIN_SIZE = -100
-MAX_SIZE = 100
-MIN_VALUE = 0
-MAX_VALUE = 99999
+MIN_SIZE = 3
+MAX_SIZE = 99
+MIN_VALUE = -100
+MAX_VALUE = 100
 
 
 def random_array(
