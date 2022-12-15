@@ -13,6 +13,8 @@
 
 - [反转单/双链表](reverse_linked_list.py)
 
+- [打印两个有序链表的公共部分](print_common_part.py)
+
 - [在链表中删除指定值的所有节点](delete_given_value.py)
 
 - [链表中点](linked_list_mid.py)
