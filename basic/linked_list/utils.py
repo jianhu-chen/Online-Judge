@@ -88,9 +88,13 @@ def random_linked_list(
     max_size: int,
     min_value: int,
     max_value: int,
-    remove_duplicate: bool = False
+    remove_duplicate: bool = False,
+    sort: bool = False,
+    reverse: bool = False
 ):
     array = random_array(min_size, max_size, min_value, max_value, remove_duplicate)
+    if sort:
+        array = sorted(array, reverse=reverse)
     return array_to_linked_list(array)
 
 
