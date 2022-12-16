@@ -101,7 +101,7 @@ if __name__ == "__main__":
     translatedContent = question["translatedContent"]
     url = f"https://leetcode.cn/problems/{titleSlug}"
 
-    import_libs = ",".join(x for x in ("List", "Optional") if x in code)
+    import_libs = ",".join(x.strip("[") for x in ("List[", "Optional[") if x in code)
     with open(file, "w") as fp:
         fp.write(
             TEMPLET.format(
@@ -117,6 +117,8 @@ if __name__ == "__main__":
     content = re.sub(r"<p>|</p>|&nbsp;", "", translatedContent).strip()
     content = content.replace("&lt;", "<")
     content = content.replace("&gt;", ">")
+    if not content.endswith("\n"):
+        content += "\n"
 
     with open(file_md, "w") as fp:
         fp.write("# {}. {}\n\n".format(frontendQuestionId, translatedTitle))
