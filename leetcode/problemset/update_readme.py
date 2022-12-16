@@ -1,38 +1,14 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""更新README.md"""
+"""更新README.md."""
 import os
 import re
-import sys
 import json
 import os.path as osp
 
-if __name__ == "__main__":
-    if len(sys.argv) != 2:
-        print("Usage: python3 update_readme.py <filter>")
-        print("       filter optional: all, top, hot100")
-        sys.exit(1)
 
-    filter_type = sys.argv[1]
-    assert filter_type in ("all", "top", "hot100")
-    save_file = {
-        "all": "README.md",
-        "top": "README_TOP.md",
-        "hot100": "README_HOT100.md"
-    }[filter_type]
-
-    readme_title = {
-        "all": "Leetcode",
-        "top": "👨‍💻 LeetCode 精选 TOP 面试题",
-        "hot100": "🔥 LeetCode 热题 HOT 100"
-    }[filter_type]
-
-    readme_head = {
-        "all": "https://leetcode.cn/problemset/all/",
-        "top": "https://leetcode.cn/problem-list/2cktkvj/",
-        "hot100": "https://leetcode.cn/problem-list/2ckc81c/"
-    }[filter_type]
-
+def update_readme(save_file, readme_title, readme_head):
+    print("update: {}".format(save_file))
     files = filter(
         lambda x: re.search(r"^\d+\.", x) and re.search(r"\.py$", x),
         os.listdir()
@@ -70,4 +46,26 @@ if __name__ == "__main__":
     with open(save_file, "w") as fp:
         fp.write(readme)
 
+
+if __name__ == "__main__":
+    for filter_type in ("all", "top", "hot100"):
+        save_file = {
+            "all": "README.md",
+            "top": "README_TOP.md",
+            "hot100": "README_HOT100.md"
+        }[filter_type]
+
+        readme_title = {
+            "all": "Leetcode",
+            "top": "👨‍💻 LeetCode 精选 TOP 面试题",
+            "hot100": "🔥 LeetCode 热题 HOT 100"
+        }[filter_type]
+
+        readme_head = {
+            "all": "https://leetcode.cn/problemset/all/",
+            "top": "https://leetcode.cn/problem-list/2cktkvj/",
+            "hot100": "https://leetcode.cn/problem-list/2ckc81c/"
+        }[filter_type]
+
+        update_readme(save_file, readme_title, readme_head)
     print("🎉 done")
