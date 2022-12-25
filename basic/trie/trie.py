@@ -7,7 +7,7 @@ class TrieNode:
     def __init__(self):
         self.p = 0
         self.e = 0
-        self.nexts = [None] * 26
+        self.nexts = {}
 
     def __repr__(self):
         return "Node(p={}, e={})".format(self.p, self.e)
@@ -31,10 +31,9 @@ class Trie:
         node = self.root
         node.p += 1
         for ch in chs:
-            index = ord(ch) - ord('a')
-            if node.nexts[index] is None:
-                node.nexts[index] = TrieNode()
-            node = node.nexts[index]
+            if node.nexts[ch] is None:
+                node.nexts[ch] = TrieNode()
+            node = node.nexts[ch]
             node.p += 1
         node.e += 1
 
@@ -45,10 +44,9 @@ class Trie:
 
         node = self.root
         for ch in word:
-            index = ord(ch) - ord('a')
-            if node.nexts[index] is None:
+            if node.nexts[ch] is None:
                 return False
-            node = node.nexts[index]
+            node = node.nexts[ch]
         return node.e
 
     def prefix(self, pre: str) -> int:
@@ -58,10 +56,9 @@ class Trie:
 
         node = self.root
         for ch in pre:
-            index = ord(ch) - ord('a')
-            if node.nexts[index] is None:
+            if node.nexts[ch] is None:
                 return 0
-            node = node.nexts[index]
+            node = node.nexts[ch]
         return node.p
 
     def delete(self, word: str):
@@ -69,10 +66,9 @@ class Trie:
         if self.search(word):
             node = self.root
             for ch in word:
-                index = ord(ch) - ord('a')
-                node.nexts[index].p -= 1
-                if node.nexts[index].p == 0:
-                    node.nexts[index] = None
+                node.nexts[ch].p -= 1
+                if node.nexts[ch].p == 0:
+                    node.nexts[ch] = None
                     return
-                node = node.nexts[index]
+                node = node.nexts[ch]
             node.e -= 1
