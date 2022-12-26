@@ -1,18 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-import time
 import random
 import string
 import unittest
-
-
-def timer(func):
-    def wrapper(*args, **kwargs):
-        start = time.perf_counter()
-        func(*args, **kwargs)
-        end = time.perf_counter()
-        print("{:<30} cost: {} ms".format(func.__name__, (end - start) * 1000))
-    return wrapper
 
 
 def palindrome_str(str: str) -> int:

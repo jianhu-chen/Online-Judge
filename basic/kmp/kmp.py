@@ -6,19 +6,8 @@ import string
 import unittest
 
 
-def timer(func):
-    def wrapper(*args, **kwargs):
-        start = time.perf_counter()
-        func(*args, **kwargs)
-        end = time.perf_counter()
-        print("{:<30} cost: {} ms".format(func.__name__, (end - start) * 1000))
-    return wrapper
-
-
 def get_index_of(str1: str, str2: str) -> int:
-    """
-    在str1中查找str2的位置, 如果找不到返回-1.
-    """
+    """在str1中查找str2的位置, 如果找不到返回-1."""
     if len(str2) == 0 or len(str1) < len(str2):
         return -1
 
@@ -30,9 +19,7 @@ def get_index_of(str1: str, str2: str) -> int:
 
 
 def kmp(str1: str, str2: str) -> int:
-    """
-    在str1中查找str2的位置, 如果找不到返回-1.
-    """
+    """在str1中查找str2的位置, 如果找不到返回-1."""
     if len(str2) == 0 or len(str1) < len(str2):
         return -1
 
@@ -73,7 +60,7 @@ def random_string(min_length: int, max_length: int) -> str:
     )
 
 
-class TestPalindrome(unittest.TestCase):
+class Tester(unittest.TestCase):
 
     def test_kmp(self):
         TEST_TIMES = 100
