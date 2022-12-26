@@ -9,17 +9,15 @@ import os.path as osp
 
 def update_readme(save_file, readme_title, readme_head):
     print("update: {}".format(save_file))
-    files = filter(
-        lambda x: re.search(r"^\d+\.", x) and re.search(r"\.py$", x),
-        os.listdir()
-    )
-    pids = map(lambda x: x.split(".")[0], files)
+    files = filter(lambda x: re.search(r"\.py$", x), os.listdir())
+    pids = map(lambda x: re.sub(r"\.\w+\.py", "", x), files)
     # load problems
     with open(f"problems_{filter_type}.json", "r") as fp:
         problems = json.load(fp)
     problems = sorted(
         (problems[pid] for pid in pids if pid in problems),
         key=lambda x: int(x["frontendQuestionId"])
+        if x["frontendQuestionId"].isdigit() else float("inf")
     )
 
     readme = """# {}
