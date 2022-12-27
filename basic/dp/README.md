@@ -1,5 +1,12 @@
 ## 动态规划
 
+树型dp:
+
+- [x] [二叉树的直径](diameter_of_binary_tree.py)
+
+- [x] [派对的最大快乐值](maximum_happiness_of_the_party.py)
+
+
 从递归到动态规划:
 
 - [x] [机器人走步](../dp/robot_walk.py)
