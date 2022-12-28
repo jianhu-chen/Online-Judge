@@ -8,4 +8,6 @@
 
 - [leetcode/weekly_contest](leetcode/weekly_contest/): 力扣周赛
 
+- [leetcode/weekly_contest](leetcode/biweekly_contest/): 力扣双周赛
+
 - [offer](offer): 牛客, 剑指Offer题集
