@@ -20,10 +20,10 @@ class BFS:
         while queue:
             cur = queue.pop(0)
             result.append(cur)
-            for next in cur.edges:
-                if next.des not in visit:
-                    queue.append(next.des)
-                    visit.add(next.des)
+            for next in cur.nexts:
+                if next not in visit:
+                    queue.append(next)
+                    visit.add(next)
         return result
 
 

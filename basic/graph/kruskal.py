@@ -32,6 +32,7 @@ class KruskalMST:
     def solution(self, graph: Graph) -> List[Edge]:
         disjoint_set = DisjointSet(graph.nodes.values())
         heap = [e for e in graph.edges]
+        # TODO: replace to my heap
         heapq.heapify(heap)
 
         edge_result: List[Edge] = []

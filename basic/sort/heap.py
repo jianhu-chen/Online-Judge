@@ -4,8 +4,7 @@ from typing import Any, List, Callable, Iterable
 
 
 class Heap:
-    """
-    Heap implementation.
+    """Heap implementation.
 
     Parameters
     ----------
@@ -68,7 +67,8 @@ class Heap:
 
     def push(self, value: Any) -> None:
         """Heap push."""
-        self.heap[self.heap_size] = value
+        if self.heap_size == len(self.heap):
+            self.heap.append(value)
         self.heap_insert(idx=self.heap_size)
         self.heap_size += 1
 
@@ -100,20 +100,19 @@ class Heap:
         """Heap empty."""
         return self.heap_size == 0
 
-    def clear(self) -> bool:
-        """Clean up useless data."""
-        del self.heap[self.heap_size:]
-
 
 class TestHeap(unittest.TestCase):
 
     def test_from_list(self):
-        heap = Heap.from_list([4, 1, 5, 3, 9], )
+        heap = Heap.from_list([4, 1, 5, 3, 9])
         self.assertEqual(heap.size(), 5)
         self.assertEqual(heap.heap, [9, 4, 5, 3, 1])
         heap = Heap.from_list([4, 1, 5, 3, 9], comparator=lambda a, b: a < b)
         self.assertEqual(heap.size(), 5)
         self.assertEqual(heap.heap, [1, 3, 5, 4, 9])
+        heap.push(1)
+        self.assertEqual(heap.size(), 6)
+        self.assertEqual(heap.heap, [1, 3, 1, 4, 9, 5])
 
 
 if __name__ == "__main__":

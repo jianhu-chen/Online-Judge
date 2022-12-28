@@ -8,9 +8,7 @@ from utils import Node, random_tree
 
 
 class SuccessorNode:
-    """
-    有父指针的二叉树, 找到其中一个节点的后继节点.
-    """
+    """有父指针的二叉树, 找到其中一个节点的后继节点."""
 
     def solution1(self, pre: Node) -> Node:
         if not pre:
@@ -20,7 +18,7 @@ class SuccessorNode:
         while root.parent is not None:
             root = root.parent
 
-        inorder: List[Node] = []
+        inorder_prev: Node = None
         stack: List[Node] = []
         node = root
         while stack or node:
@@ -28,9 +26,9 @@ class SuccessorNode:
                 stack.append(node)
                 node = node.left
             node = stack.pop()
-            if inorder and inorder[-1] == pre:
+            if inorder_prev == pre:
                 return node
-            inorder.append(node)
+            inorder_prev = node
             node = node.right
 
         # pre is last node, no successor
@@ -46,8 +44,7 @@ class SuccessorNode:
             while node.left:
                 node = node.left
             return node
-
-        # case 2: 没有右子树, 返回第一个父节点是其父节点的右孩子的节点
+        # case 2: 没有右子树, 返回 第一个祖先节点路径上, 其父节点在其右侧的节点
         else:
             parent = pre.parent
             while parent and parent.right == pre:

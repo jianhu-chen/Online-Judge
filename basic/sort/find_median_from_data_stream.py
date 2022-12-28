@@ -8,8 +8,7 @@ from heap import Heap
 
 
 class MedianFinder:
-    """
-    中位数是有序列表中间的数。如果列表长度是偶数，中位数则是中间两个数的平均值。
+    """中位数是有序列表中间的数。如果列表长度是偶数，中位数则是中间两个数的平均值。
 
     例如，
 
@@ -27,9 +26,9 @@ class MedianFinder:
 
     def __init__(self):
         # 记录大于等于中位数的数
-        self.min_heap = Heap(max_size=30000, comparator=lambda x, y: x < y)
+        self.min_heap = Heap(comparator=lambda x, y: x < y)
         # 记录小于中位数的数
-        self.max_heap = Heap(max_size=30000, comparator=lambda x, y: x > y)
+        self.max_heap = Heap(comparator=lambda x, y: x > y)
 
     def addNum(self, num: int) -> None:
         if self.min_heap.empty() or num >= self.min_heap.top():

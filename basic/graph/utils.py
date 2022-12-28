@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 import json
 import random
+import unittest
 from typing import Any, Set, List, Mapping
 
 
@@ -20,13 +21,6 @@ class Node:
     def nexts(self) -> List['Node']:
         return self._nexts
 
-    @nexts.setter
-    def nexts(self, nexts: List['Node']) -> None:
-        self._nexts = nexts
-        self.outdegree = len(nexts)
-        for next in nexts:
-            next.indegree += 1
-
     __str__ = __repr__
 
 
@@ -36,18 +30,6 @@ class Edge:
         self.weight: float = weight
         self.src: Node = src
         self.des: Node = des
-
-    def __gt__(self, other: 'Edge') -> bool:
-        return self.weight > other.weight
-
-    def __lt__(self, other: 'Edge') -> bool:
-        return self.weight < other.weight
-
-    def __ge__(self, other: 'Edge') -> bool:
-        return self.weight >= other.weight
-
-    def __le__(self, other: 'Edge') -> bool:
-        return self.weight <= other.weight
 
     def __repr__(self) -> str:
         return f"Edge(weight={self.weight}, src={self.src}, des={self.des})"
@@ -104,15 +86,31 @@ def adjacency_list_to_graph(adjacency_list: List[LinkedListNode]):
         if not pre:
             raise ValueError("Invalid adjacency list")
         # for the first node, create a node
-        assert pre.val not in nodes
-        nodes[pre.val] = Node(pre.val)
+        if pre.val not in nodes:
+            pre_node = Node(pre.val)
+        else:
+            pre_node = nodes[pre.val]
+        nodes[pre.val] = pre_node
         # for the rest of the nodes, add edges
         cur = pre.next
         while cur:
             if cur.val not in nodes:
-                nodes[cur.val] = Node(cur.val)
-            edges.add(Edge(1, nodes[pre.val], nodes[cur.val]))
-            pre = cur
+                cur_node = Node(cur.val)
+            else:
+                cur_node = nodes[cur.val]
+            # update node degree
+            pre_node.outdegree += 1
+            cur_node.indegree += 1
+            # update node nexts
+            pre_node.nexts.append(cur_node)
+            # new edge
+            pre_cur_edge = Edge(1, pre_node, cur_node)
+            # update node edges
+            pre_node.edges.append(pre_cur_edge)
+            # insert to graph nodes
+            nodes[cur.val] = cur_node
+            # insert to graph edges
+            edges.add(pre_cur_edge)
             cur = cur.next
     return Graph(nodes, edges)
 
@@ -169,5 +167,15 @@ def random_graph(
     return adjacency_matrix_to_graph(matrix)
 
 
-if __name__ == "__main__":
-    g = random_graph()
+class Tester(unittest.TestCase):
+
+    def test_adjacency_list_to_graph():
+        # fake data
+        node0 = LinkedListNode(0)
+        node1 = LinkedListNode(1)
+        node2 = LinkedListNode(2)
+        node3 = LinkedListNode(3)
+        node4 = LinkedListNode(4)
+        node5 = LinkedListNode(5)
+
+        adjacency_list = []
