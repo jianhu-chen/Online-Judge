@@ -9,5 +9,6 @@ def GCD(a, b):
 
 class Solution:
     def isReachable(self, targetX: int, targetY: int) -> bool:
+        # 问题可以转化为求两者的最大公约数是否为2的幂
         g = GCD(targetX, targetY)
         return (g & (g - 1)) == 0  # 2 的 x 次方？
