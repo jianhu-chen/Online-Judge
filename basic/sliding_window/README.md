@@ -16,7 +16,10 @@
 
 情况2: 相向双指针
 
-
 - [两数之和II](../../leetcode/problemset/167.two_sum_ii_input_array_is_sorted.md)
 
 - [三数之和](../../leetcode/problemset/15.3sum.md)
+
+- [盛最多水的容器](../../leetcode/problemset/11.container_with_most_water.md)
+
+- [接雨水](../../leetcode/problemset/42.trapping_rain_water.md)
