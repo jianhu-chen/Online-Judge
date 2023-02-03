@@ -16,11 +16,10 @@ class Solution:
         if not head or not head.next:
             return head
 
-        prev = None
-        next = None
-        while head:
-            next = head.next
-            head.next = prev
-            prev = head
-            head = next
-        return prev
+        pre, cur, nxt = None, head, None
+        while cur:
+            nxt = cur.next
+            cur.next = pre
+            pre = cur
+            cur = nxt
+        return pre
