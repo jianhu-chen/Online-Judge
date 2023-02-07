@@ -6,13 +6,16 @@ from typing import List
 
 class Solution:
     def permute(self, nums: List[int]) -> List[List[int]]:
-        def process(cur, rest):
+        ans, path = [], []
+
+        def dfs(i, rest):
             if not rest:
-                return [cur]
+                ans.append(path.copy())
+                return
+            for x in rest:
+                path.append(x)
+                dfs(i + 1, rest - {x})
+                path.pop()
 
-            result = []
-            for i in range(len(rest)):
-                result += process([*cur, rest[i]], rest[:i] + rest[i + 1:])
-            return result
-
-        return process([], nums)
+        dfs(0, set(nums))
+        return ans
