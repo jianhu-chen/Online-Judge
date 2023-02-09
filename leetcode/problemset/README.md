@@ -20,6 +20,7 @@ https://leetcode.cn/problemset/all/
 |46|[Permutations](https://leetcode.cn/problems/permutations)|[全排列](https://leetcode.cn/problems/permutations)|[46.permutations.py](46.permutations.py)|[点击打开](46.permutations.md)|MEDIUM|78.81%|
 |47|[Permutations II](https://leetcode.cn/problems/permutations-ii)|[全排列 II](https://leetcode.cn/problems/permutations-ii)|[47.permutations_ii.py](47.permutations_ii.py)|[点击打开](47.permutations_ii.md)|MEDIUM|65.34%|
 |51|[N-Queens](https://leetcode.cn/problems/n-queens)|[N 皇后](https://leetcode.cn/problems/n-queens)|[51.n_queens.py](51.n_queens.py)|[点击打开](51.n_queens.md)|HARD|74.19%|
+|74|[Search a 2D Matrix](https://leetcode.cn/problems/search-a-2d-matrix)|[搜索二维矩阵](https://leetcode.cn/problems/search-a-2d-matrix)|[74.search_a_2d_matrix.py](74.search_a_2d_matrix.py)|[点击打开](74.search_a_2d_matrix.md)|MEDIUM|48.36%|
 |77|[Combinations](https://leetcode.cn/problems/combinations)|[组合](https://leetcode.cn/problems/combinations)|[77.combinations.py](77.combinations.py)|[点击打开](77.combinations.md)|MEDIUM|77.26%|
 |78|[Subsets](https://leetcode.cn/problems/subsets)|[子集](https://leetcode.cn/problems/subsets)|[78.subsets.py](78.subsets.py)|[点击打开](78.subsets.md)|MEDIUM|80.93%|
 |92|[Reverse Linked List II](https://leetcode.cn/problems/reverse-linked-list-ii)|[反转链表 II](https://leetcode.cn/problems/reverse-linked-list-ii)|[92.reverse_linked_list_ii.py](92.reverse_linked_list_ii.py)|[点击打开](92.reverse_linked_list_ii.md)|MEDIUM|55.58%|
