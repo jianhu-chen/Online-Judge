@@ -5,9 +5,7 @@ import unittest
 
 
 def swap(num1, num2):
-    """
-    不使用任何额外的变量, 交换两个数字的值.
-    """
+    """不使用任何额外的变量, 交换两个数字的值."""
     num1 ^= num2
     num2 ^= num1
     num1 ^= num2
@@ -15,7 +13,8 @@ def swap(num1, num2):
 
 
 def one_number_odd_times(array):
-    """
+    """https://leetcode.cn/problems/single-number.
+
     一个数组中只有一种数出现了奇数次, 其他数都出现了偶数次, 找到这个数并返回.
     """
     eor = 0
@@ -25,7 +24,8 @@ def one_number_odd_times(array):
 
 
 def two_number_odd_times(array):
-    """
+    """https://leetcode.cn/problems/single-number-iii.
+
     一个数组中有两种数出现了奇数次, 其他数都出现了偶数次, 找到这两个数并返回(升序).
     """
     eor = 0
