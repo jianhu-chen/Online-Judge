@@ -2,7 +2,9 @@
 
 ## 目录说明
 
-- [basic](./basic/): 算法与数据结构基础
+- [basic](./basic/): 数据结构与算法基础
+
+- [codeforces](./codeforces/): codeforces题集
 
 - [leetcode/problemset](leetcode/problemset/): 力扣题集
 
