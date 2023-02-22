@@ -9,7 +9,7 @@
 4. [二叉树](binary_tree)
 
 5. [图](graph)
-   
+
 6. [字典树](trie)
 
 7. [贪心](greedy)
@@ -28,4 +28,6 @@
 
 14. [并查集](disjoint_set)
 
-15. [大数据](big_data)
+15. [线段树](segment_tree)
+
+16. [大数据](big_data)
