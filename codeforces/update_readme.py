@@ -10,7 +10,7 @@ for x in os.listdir("."):
         continue
     lines.append((
         (f"* [{res.group(0)[:-3]}](https://codeforces.com/"
-         f"problemset/problem/{res.group(1)}/{res.group(2)})"),
+         f"contest/{res.group(1)}/problem/{res.group(2)})"),
         res.group(1),
         res.group(2)
     ))

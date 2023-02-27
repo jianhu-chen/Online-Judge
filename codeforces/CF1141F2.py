@@ -5,10 +5,9 @@ from collections import defaultdict
 
 
 class Solution:
-    """https://codeforces.com/problemset/problem/1141/F2."""
+    """https://codeforces.com/contest/1141/problem/F2."""
 
     def sameSumBlocks(self, nums):
-        # [4 1 2 2 1 5 3]
         ps = list(accumulate(nums, initial=0))
         n = len(nums)
         # 1. 暴力计算子集和到子集下标范围的映射(闭区间)
