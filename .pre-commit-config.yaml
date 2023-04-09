@@ -2,7 +2,7 @@
 # See https://pre-commit.com/hooks.html for more hooks
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v4.1.0
+    rev: v4.4.0
     hooks:
       - id: check-added-large-files # args: ['--maxkb=123'] (default=500kB).
       # Checks for a common error of placing code before the docstring.
@@ -30,11 +30,11 @@ repos:
     hooks:
       - id: isort
   - repo: https://github.com/jorisroovers/gitlint
-    rev: v0.15.1
+    rev: v0.19.1
     hooks:
       - id: gitlint
   - repo: https://github.com/PyCQA/autoflake
-    rev: v1.4
+    rev: v2.0.2
     hooks:
       - id: autoflake
         name: Remove unused variables and imports
@@ -50,11 +50,11 @@ repos:
           ]
         files: \.py$
   - repo: https://github.com/myint/docformatter
-    rev: v1.3.1
+    rev: v1.6.0
     hooks:
       - id: docformatter
         args: ["--in-place", "--wrap-descriptions", "79"]
   - repo: https://github.com/codespell-project/codespell
-    rev: v2.1.0
+    rev: v2.2.4
     hooks:
       - id: codespell
