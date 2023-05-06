@@ -9,7 +9,7 @@ class Solution:
         prev_leave, max_time, max_idx = 0, 0, 0
         for idx, leave_time in logs:
             diff = leave_time - prev_leave
-            if diff > max_time or (diff == max_time and idx < max_idx) :
+            if diff > max_time or (diff == max_time and idx < max_idx):
                 max_time = diff
                 max_idx = idx
             prev_leave = leave_time
