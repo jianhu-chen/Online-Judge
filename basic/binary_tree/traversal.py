@@ -14,9 +14,7 @@ class PreOrderTraversal:
         if not root:
             return []
 
-        left = self.solution1(root.left)
-        right = self.solution1(root.right)
-        return [root] + left + right
+        return [root, *self.solution1(root.left), *self.solution1(root.right)]
 
     def solution2(self, root: Node) -> List[Node]:
         """迭代实现."""
@@ -42,9 +40,7 @@ class InOrderTraversal:
         if not root:
             return []
 
-        left = self.solution1(root.left)
-        right = self.solution1(root.right)
-        return left + [root] + right
+        return [*self.solution1(root.left), root, *self.solution1(root.right)]
 
     def solution2(self, root: Node) -> List[Node]:
         """迭代实现."""
@@ -71,9 +67,7 @@ class PostOrderTraversal:
         if not root:
             return []
 
-        left = self.solution1(root.left)
-        right = self.solution1(root.right)
-        return left + right + [root]
+        return [*self.solution1(root.left), *self.solution1(root.right), root]
 
     def solution2(self, root: Node) -> List[Node]:
         """迭代实现.

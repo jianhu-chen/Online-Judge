@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 import random
 import unittest
-
+from queue import Queue
 from utils import Node, random_tree
 
 
@@ -13,11 +13,12 @@ class TreeMaxWidth:
             return 0
 
         max_width = 1
-        queue = [(root, 1)]  # (node, level)
+        queue = Queue()
+        queue.put((root, 1))  # (node, level)
         cur_level = 1
         cur_level_nodes = 0
-        while queue:
-            node, node_level = queue.pop(0)
+        while not queue.empty():
+            node, node_level = queue.get()
             if node_level == cur_level:
                 cur_level_nodes += 1
             else:
@@ -25,9 +26,9 @@ class TreeMaxWidth:
                 cur_level_nodes = 1
                 cur_level += 1
             if node.left:
-                queue.append((node.left, node_level + 1))
+                queue.put((node.left, node_level + 1))
             if node.right:
-                queue.append((node.right, node_level + 1))
+                queue.put((node.right, node_level + 1))
         # !NOTE (jianhu): last level
         max_width = max(max_width, cur_level_nodes)
         return max_width
@@ -41,14 +42,15 @@ class TreeMaxWidth:
         cur_level = 1
         cur_level_nodes = 0
         max_width = 1
-        queue = [root]
-        while queue:
-            node = queue.pop(0)
+        queue = Queue()
+        queue.put(root)
+        while not queue.empty():
+            node = queue.get()
             cur_level_nodes += 1
 
             for child in (node.left, node.right):
                 if child is not None:
-                    queue.append(child)
+                    queue.put(child)
                     next_level_end_node = child
 
             if node == cur_level_end_node:
