@@ -11,8 +11,7 @@ class PrimMST:
 
     def solution(self, graph: Graph) -> List[Edge]:
         # 小根堆维护边的权重
-        heap = [e for e in graph.edges]
-        heapq.heapify(heap)
+        heap = []
 
         visit: Set[Node] = set()
         edge_result: Set[Edge] = set()

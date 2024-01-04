@@ -31,7 +31,7 @@ class Trie:
         node = self.root
         node.p += 1
         for ch in chs:
-            if node.nexts[ch] is None:
+            if node.nexts.get(ch) is None:
                 node.nexts[ch] = TrieNode()
             node = node.nexts[ch]
             node.p += 1
@@ -44,7 +44,7 @@ class Trie:
 
         node = self.root
         for ch in word:
-            if node.nexts[ch] is None:
+            if node.nexts.get(ch) is None:
                 return False
             node = node.nexts[ch]
         return node.e
@@ -56,7 +56,7 @@ class Trie:
 
         node = self.root
         for ch in pre:
-            if node.nexts[ch] is None:
+            if node.nexts.get(ch) is None:
                 return 0
             node = node.nexts[ch]
         return node.p
@@ -72,3 +72,7 @@ class Trie:
                     return
                 node = node.nexts[ch]
             node.e -= 1
+
+
+if __name__ == "__main__":
+    Trie(["hello","world!"])
